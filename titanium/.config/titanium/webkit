@@ -1,0 +1,3 @@
+set webkit-enable-developer-extras = true
+set webkit-javascript-can-open-windows-automatically = true
+set webkit-enable-webgl = true

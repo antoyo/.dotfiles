@@ -1,0 +1,37 @@
+[user]
+    email = bouanto@zoho.com
+    name = Antoni Boucher
+[push]
+    default = simple
+[diff]
+    tool = vimdiff
+[difftool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE
+[merge]
+    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[alias]
+    ai = add -i
+    b = branch
+    bd = branch --delete
+    c = checkout
+    ca = commit --amend
+    cb = checkout -b
+    co = commit
+    cp = cherry-pick
+    d = diff
+    dc = diff --cached
+    l = log
+    lp = log -p
+    ls = log --stat
+    m = merge
+    ma = merge --abort
+    mt = mergetool
+    rc = rebase --continue
+    ri = rebase --interactive
+    s = status
+    sl = stash list
+    sp = stash pop
+    ss = stash show
+    st = stash

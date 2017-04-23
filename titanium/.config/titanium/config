@@ -1,0 +1,23 @@
+include keys
+include webkit
+
+set home-page = https://duckduckgo.com/lite/
+
+# Search engines.
+search-engine d https://duckduckgo.com/lite/?q={}
+search-engine wt http://fr.wiktionary.org/w/index.php?search={}
+search-engine wte http://en.wiktionary.org/w/index.php?search={}
+search-engine wp https://fr.wikipedia.org/w/index.php?search={}
+search-engine wpe http://en.wikipedia.org/w/index.php?search={}
+search-engine aw https://wiki.archlinux.org/index.php?search={}
+search-engine ar https://aur.archlinux.org/packages/?O=0&K={}
+search-engine cr https://crates.io/search?q={}
+search-engine rs https://doc.rust-lang.org/stable/std/?search={}
+search-engine ia http://web.archive.org/web/*/{}
+search-engine rd https://docs.rs/releases/search?query={}
+search-engine mdn https://developer.mozilla.org/en-US/search?q={}
+search-engine gh https://github.com/search?utf8=%E2%9C%93&q={}
+
+set hint-chars = auietsrncbpodljyxkqghf
+
+set cookie-accept = no-third-party
