@@ -43,3 +43,9 @@ auto-reload yes
 browser "setsid titanium %u >> /dev/null 2>&1 &"
 max-items 100
 reload-threads 10
+
+# Colors fix.
+color info white black
+color article white black
+color listnormal white black
+color background white black
