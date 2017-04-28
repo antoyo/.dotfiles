@@ -85,6 +85,10 @@ autocmd InsertLeave * highlight SpecialKey ctermbg=red
 " Highlight the current line instead of underlining it.
 highlight CursorLine cterm=NONE ctermbg=234
 
+" Show the columns from 121 in another color.
+let &colorcolumn=join(range(121,999), ",")
+highlight ColorColumn ctermbg=237
+
 " File type configuration.
 filetype plugin indent on
 

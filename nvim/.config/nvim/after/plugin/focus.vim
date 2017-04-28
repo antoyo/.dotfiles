@@ -1,0 +1,2 @@
+autocmd! FocusGained
+autocmd! FocusLost
