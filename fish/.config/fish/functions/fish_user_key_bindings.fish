@@ -33,9 +33,21 @@ function prepend_to_command
     commandline -C $new_position
 end
 
+function forward
+    findchar (commandline -C) (commandline)
+    commandline -C $status
+end
+
+function backward
+    findchar (commandline -C) (commandline) --backward
+    commandline -C $status
+end
+
 function fish_user_key_bindings
     bind \ea cd_left
     bind \ee cd_right
     bind \el 'append_to_command " | less"'
     bind \es 'prepend_to_command "sudo "'
+    bind \er forward
+    bind \eR backward
 end

@@ -17,6 +17,10 @@ function docx2txt
     docx2txt.pl $argv[1] /dev/stdout
 end
 
+function traden
+    trans -brief :en "$argv"
+end
+
 function tradfr
     trans -brief :fr "$argv"
 end
