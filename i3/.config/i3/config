@@ -208,3 +208,4 @@ exec offlineimap
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
 exec anamnesis --start
+exec xrandr --output VGA1 --auto --left-of LVDS1 --primary --output LVDS1 --auto

@@ -22,7 +22,8 @@
     cp = cherry-pick
     d = diff
     dc = diff --cached
-    l = log
+    fix = commit --fixup
+    l = log --no-decorate
     lp = log -p
     ls = log --stat
     m = merge
@@ -30,6 +31,7 @@
     mt = mergetool
     rc = rebase --continue
     ri = rebase --interactive
+    ria = rebase --interactive --autosquash
     s = status
     sl = stash list
     sp = stash pop
