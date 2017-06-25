@@ -96,8 +96,7 @@ augroup filegroup
     autocmd FileType c,cpp setlocal cindent
     autocmd FileType python setlocal autoindent
     autocmd FileType asciidoc set nospell
-    autocmd BufWritePost * if &ft != "cpp" && &ft != "rust" | Neomake | endif
-    "autocmd BufWritePost *.rs Neomake! clippy
+    autocmd BufWritePost * if &ft != "cpp" | Neomake | endif
     autocmd VimLeave * CurrentSessionSave
 augroup END
 
