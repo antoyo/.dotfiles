@@ -96,7 +96,7 @@ augroup filegroup
     autocmd FileType c,cpp setlocal cindent
     autocmd FileType python setlocal autoindent
     autocmd FileType asciidoc set nospell
-    autocmd BufWritePost * if &ft != "cpp" | Neomake | endif
+    autocmd BufWritePost * if &ft != "cpp" && &ft != "rust" | Neomake | endif
     autocmd VimLeave * CurrentSessionSave
 augroup END
 
@@ -105,6 +105,7 @@ map <F1> <nop>
 imap <F1> <nop>
 nnoremap Q <nop>
 nnoremap <C-Z> <nop>
+nnoremap q: <nop>
 
 " Disable Ctrl-C.
 cmap <C-c> <nop>

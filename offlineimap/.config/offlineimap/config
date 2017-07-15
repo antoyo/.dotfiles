@@ -422,14 +422,6 @@ autorefresh = 5
 localrepository = openmailbox-local
 remoterepository = openmailbox-remote
 
-[Account USherbrooke]
-
-localrepository = usherbrooke-local
-remoterepository = usherbrooke-remote
-
-autorefresh = 5
-#status_backend = sqlite
-
 [Repository zoho-local]
 
 # Each repository requires a "type" declaration. The types supported for
@@ -561,15 +553,6 @@ sync_deletes = yes
 #customflag_d = ToDo
 
 nametrans = lambda folder: re.sub('^Envoye$', 'Envoy&AOk-', folder)
-
-[Repository usherbrooke-local]
-
-type = Maildir
-
-localfolders = ~/.config/offlineimap/USherbrooke
-
-sep = /
-sync_deletes = yes
 
 [Repository openmailbox-local]
 
@@ -1144,7 +1127,7 @@ nametrans = lambda folder: re.sub('^Envoy&AOk-$', 'Envoye', folder)
 #folderfilter = lambda foldername: foldername in [
 #    'INBOX', 'Sent Mail',
 #    'Deleted Items', 'Received']
-folderfilter = lambda folder: folder in ['Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Mensa', 'Services', 'Spam']
+folderfilter = lambda folder: folder in ['Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Autre', 'Mensa', 'Services', 'Spam']
 
 # This option stands in the [Repository RemoteExample] section.
 #
@@ -1227,23 +1210,6 @@ sync_deletes = yes
 # likely '/').
 #
 #copy_ignore_eval = lambda foldername: {'INBOX': [2, 3, 4]}.get(foldername)
-
-[Repository usherbrooke-remote]
-
-type = IMAP
-
-remoteuser = boua1737
-remotepasseval = get_pass("usherbrooke")
-remotehost = courriel.usherbrooke.ca
-
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-holdconnectionopen = yes
-
-keepalive = 60
-
-folderfilter = lambda folder: folder in ['INBOX']
-sync_deletes = yes
 
 [Repository openmailbox-remote]
 

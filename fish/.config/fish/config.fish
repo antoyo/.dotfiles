@@ -13,8 +13,8 @@ function mkc
     mkdir $argv[1]; cd $argv[1]
 end
 
-function docx2txt
-    docx2txt.pl $argv[1] /dev/stdout
+function docx
+    docx2txt $argv[1] -
 end
 
 function traden
@@ -48,6 +48,7 @@ alias ls "ls --color=auto -N"
 alias mkdir "mkdir -p"
 alias mount "udisksctl mount -b"
 alias mount_cd "udisksctl mount -b /dev/sr0"
+alias mpl "mpv --video-aspect=16:9"
 alias mv "mv -i"
 alias nvimconfig "cd ~/.config/nvim; nvim init.vim"
 alias pcf "pacaur -Si"

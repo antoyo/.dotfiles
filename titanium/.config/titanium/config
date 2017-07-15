@@ -17,7 +17,7 @@ search-engine ia http://web.archive.org/web/*/{}
 search-engine rd https://docs.rs/releases/search?query={}
 search-engine mdn https://developer.mozilla.org/en-US/search?q={}
 search-engine gh https://github.com/search?utf8=%E2%9C%93&q={}
-search-engine gtk http://gtk-rs.org/docs/gtk/?search={}
+search-engine gt http://gtk-rs.org/docs/gtk/?search={}
 
 set hint-chars = auietsrncbpodljyxkqghf
 
