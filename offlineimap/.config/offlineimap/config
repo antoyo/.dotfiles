@@ -1127,7 +1127,7 @@ nametrans = lambda folder: re.sub('^Envoy&AOk-$', 'Envoye', folder)
 #folderfilter = lambda foldername: foldername in [
 #    'INBOX', 'Sent Mail',
 #    'Deleted Items', 'Received']
-folderfilter = lambda folder: folder in ['Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Autre', 'Mensa', 'Services', 'Spam']
+folderfilter = lambda folder: folder in ['Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Autre', 'Livre', 'Mensa', 'Services', 'Spam']
 
 # This option stands in the [Repository RemoteExample] section.
 #

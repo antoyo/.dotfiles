@@ -16,6 +16,7 @@ Plug 'antoyo/semantic-highlight.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 Plug 'racer-rust/vim-racer'
 Plug 'rhysd/vim-grammarous'
 Plug 'roxma/nvim-completion-manager'
@@ -198,6 +199,10 @@ let g:gundo_map_move_newer = "s"
 
 " Vimple fix.
 let vimple_init_vn = 0
+
+" Colorscheme
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
 
 " Fix to show the tabs at startup.
 redraw
