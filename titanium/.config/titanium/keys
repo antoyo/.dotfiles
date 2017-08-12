@@ -21,6 +21,7 @@ nmap g- url-decrement
 nmap g+ url-increment
 nmap G scroll-bottom
 nmap i insert
+nmap li password-insert
 nmap ll password-load
 nmap ls password-save
 nmap lu password-submit
@@ -51,7 +52,7 @@ nmap ]] click-next-page
 fmap <Esc> hide-hints
 imap <Esc> normal
 
-cmap <C-d> delete-selected-bookmark
+cmap <C-r> delete-selected-bookmark
 cmap <C-n> complete-next
 cmap <C-p> complete-previous
 

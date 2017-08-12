@@ -202,7 +202,7 @@ bindsym $mod+End exec $(amixer get Master | grep off > /dev/null && amixer -q se
 exec xsetroot -cursor_name left_ptr
 exec unclutter -root
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
-exec i3-msg 'workspace chat'; exec termite -e "fish -c weechat"; exec i3-msg 'workspace 2'
+exec i3-msg exec 'termite -e "fish -c weechat"'
 exec offlineimap
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png

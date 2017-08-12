@@ -1,6 +1,7 @@
 " Plugins.
 call plug#begin()
 
+Plug 'alex-ren/org.ats-lang.toolats', { 'rtp': 'org.ats-lang.toolats.vim' }
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
@@ -46,6 +47,7 @@ let mapleader = "\<Space>"
 " UI configuration.
 set background=dark
 set cursorline " Highlight the active line.
+set diffopt+=vertical " Make diff split vertical by default.
 set inccommand=split " Incremental visual feedback for the substitute command.
 set list listchars=tab:▸\ ,nbsp:¬,trail:· " Display a character on tabs, nbsp and trailing whitespace.
 set mouse= " Disable the mouse.
@@ -112,6 +114,10 @@ nnoremap q: <nop>
 cmap <C-c> <nop>
 imap <C-c> <nop>
 vmap <C-c> <nop>
+
+" Disable Tab.
+inoremap <Tab> <nop>
+vnoremap <Tab> <nop>
 
 " Shorcuts.
 " Go to alternate buffer.
