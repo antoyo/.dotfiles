@@ -1,7 +1,6 @@
 " Plugins.
 call plug#begin()
 
-Plug 'alex-ren/org.ats-lang.toolats', { 'rtp': 'org.ats-lang.toolats.vim' }
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
@@ -13,13 +12,10 @@ Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
 Plug 'h1mesuke/vim-unittest'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'antoyo/semantic-highlight.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
 Plug 'racer-rust/vim-racer'
-Plug 'rhysd/vim-grammarous'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-racer'
 Plug 'rust-lang/rust.vim'
@@ -77,6 +73,9 @@ set formatoptions=ro " Insert comment leader when hitting Enter or o/O.
 set shiftwidth=4 " Auto-indent this number of space.
 set tabstop=4 " Tabs will be shown on 4 characters.
 
+" Abbreviation.
+iabbrev èèè ```<CR><CR>```
+
 " Syntax configuration.
 syntax on
 " Color the special keys (tabs, trailing spaces, nbsp) in red.
@@ -99,7 +98,6 @@ augroup filegroup
     autocmd FileType c,cpp setlocal cindent
     autocmd FileType python setlocal autoindent
     autocmd FileType asciidoc set nospell
-    autocmd BufWritePost * if &ft != "cpp" && &ft != "rust" | Neomake | endif
     autocmd VimLeave * CurrentSessionSave
 augroup END
 
@@ -187,6 +185,7 @@ let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 " Neomake
 let g:neomake_open_list = 2
 let g:neomake_asciidoc_enabled_makers = []
+call neomake#configure#automake('w')
 
 " Airline
 set laststatus=2
@@ -205,10 +204,6 @@ let g:gundo_map_move_newer = "s"
 
 " Vimple fix.
 let vimple_init_vn = 0
-
-" Colorscheme
-let g:gruvbox_contrast_dark="hard"
-colorscheme gruvbox
 
 " Fix to show the tabs at startup.
 redraw

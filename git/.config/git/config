@@ -32,6 +32,7 @@
     rc = rebase --continue
     ri = rebase --interactive
     ria = rebase --interactive --autosquash
+    rv = remote --verbose
     s = status
     sl = stash list
     sp = stash pop

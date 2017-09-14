@@ -1,2 +1,2 @@
-autocmd! FocusGained
-autocmd! FocusLost
+autocmd! numbertoggle FocusGained
+autocmd! numbertoggle FocusLost
