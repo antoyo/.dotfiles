@@ -19,7 +19,7 @@ nmap gu go-parent-dir
 nmap gU go-root-dir
 nmap g- url-decrement
 nmap g+ url-increment
-nmap G scroll-bottom
+nmap G scroll-to
 nmap i insert
 nmap li password-insert
 nmap ll password-load
@@ -37,6 +37,8 @@ nmap r scroll-right
 nmap s scroll-up-line
 nmap t scroll-down-line
 nmap y copy-url
+nmap v :private-win-open
+nmap V :private-win-open <url>
 nmap w :win-open
 nmap W :win-open <url>
 nmap = zoom-normal
@@ -47,13 +49,15 @@ nmap <C-t> bookmark-edit-tags
 nmap <Enter> activate-selection
 nmap <Esc> finish-search
 nmap ;h hover
+nmap ;s save-link
+nmap ;y copy-link-url
 nmap [[ click-prev-page
 nmap ]] click-next-page
 
 fmap <Esc> hide-hints
 imap <Esc> normal
 
-cmap <C-r> delete-selected-bookmark
+cmap <C-D> delete-selected-bookmark
 cmap <C-n> complete-next
 cmap <C-p> complete-previous
 
@@ -62,11 +66,11 @@ cmap <C-p> complete-previous
 cmap <A-b> entry-previous-word
 cmap <A-d> entry-delete-next-word
 cmap <A-f> entry-next-word
+cmap <S-Insert> entry-paste-selection
 cmap <C-a> entry-smart-home
 cmap <C-b> entry-previous-char
 cmap <C-c> entry-copy
 cmap <C-d> entry-delete-next-char
-cmap <C-x> delete-entry
 cmap <C-e> entry-end
 cmap <C-f> entry-next-char
 cmap <C-v> entry-paste
