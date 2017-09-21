@@ -4,6 +4,7 @@ include webkit
 set home-page = https://peekier.com
 
 # Search engines.
+search-engine p https://peekier.com/#!{}
 search-engine d https://duckduckgo.com/lite/?q={}
 search-engine wt http://fr.wiktionary.org/w/index.php?search={}
 search-engine wte http://en.wiktionary.org/w/index.php?search={}
@@ -18,7 +19,6 @@ search-engine rd https://docs.rs/releases/search?query={}
 search-engine mdn https://developer.mozilla.org/en-US/search?q={}
 search-engine gh https://github.com/search?utf8=%E2%9C%93&q={}
 search-engine gt http://gtk-rs.org/docs/gtk/?search={}
-search-engine p https://peekier.com/#!{}
 
 set hint-chars = auietsrncbpodljyxkqghf
 
