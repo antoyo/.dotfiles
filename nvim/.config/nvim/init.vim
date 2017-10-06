@@ -80,10 +80,10 @@ iabbrev èèè ```<CR><CR>```
 " Syntax configuration.
 syntax on
 " Color the special keys (tabs, trailing spaces, nbsp) in red.
-highlight SpecialKey ctermbg=red
+highlight Whitespace ctermbg=red
 " Disable this special keys highlighting in normal mode.
-autocmd InsertEnter * highlight clear SpecialKey
-autocmd InsertLeave * highlight SpecialKey ctermbg=red
+autocmd InsertEnter * highlight clear Whitespace
+autocmd InsertLeave * highlight Whitespace ctermbg=red
 " Highlight the current line instead of underlining it.
 highlight CursorLine cterm=NONE ctermbg=234
 
@@ -106,6 +106,7 @@ augroup END
 map <F1> <nop>
 imap <F1> <nop>
 nnoremap Q <nop>
+nnoremap <Space><Space> <nop>
 nnoremap <C-Z> <nop>
 nnoremap q: <nop>
 

@@ -1,10 +1,11 @@
 include keys
 include webkit
+include marks
 
-set home-page = https://peekier.com
+set home-page = https://searx.me/
 
 # Search engines.
-search-engine p https://peekier.com/#!{}
+search-engine p https://searx.me/?q={}
 search-engine d https://duckduckgo.com/lite/?q={}
 search-engine wt http://fr.wiktionary.org/w/index.php?search={}
 search-engine wte http://en.wiktionary.org/w/index.php?search={}

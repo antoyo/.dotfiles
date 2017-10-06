@@ -2,7 +2,7 @@ text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; name
 application/pdf; pdf2txt %s; copiousoutput
 application/x-zip-compressed; 7z l %s; copiousoutput
 application/zip; 7z l %s; copiousoutput
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt.pl %s /dev/stdout; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt %s -; copiousoutput
 application/msword; antiword %s; copiousoutput
 image/jpeg; feh %s
 image/jpg; feh %s
