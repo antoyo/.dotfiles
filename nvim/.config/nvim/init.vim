@@ -16,6 +16,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'neomutt/neomutt.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-racer'
@@ -206,6 +207,3 @@ let g:gundo_map_move_newer = "s"
 
 " Vimple fix.
 let vimple_init_vn = 0
-
-" Fix to show the tabs at startup.
-redraw

@@ -190,7 +190,6 @@ bindsym $mod+c exec termite -e "fish -c weechat"
 bindsym $mod+m exec termite -e "fish -c neomutt"
 bindsym $mod+u exec titanium
 bindsym $mod+v exec termite -e "fish -c nvim"
-bindsym $mod+w exec qutebrowser.py
 bindsym $mod+z exec zathura
 
 # Volume management.

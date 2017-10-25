@@ -64,7 +64,7 @@ alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
 alias trc "transmission-remote-cli"
 alias unmount "udisksctl unmount -b"
 alias unmount_cd "udisksctl unmount -b /dev/sr0"
-alias urlsnews "nvim ~/.config/newsbeuter/urls"
+alias urlsnews "nvim ~/.config/newsboat/urls"
 alias you "youtube-dl --no-playlist"
 
 function __fish_command_not_found_handler --on-event fish_command_not_found

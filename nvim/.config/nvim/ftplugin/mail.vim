@@ -11,8 +11,8 @@ endfunction
 
 augroup mail_filetype
     autocmd!
-    autocmd VimEnter /tmp/mutt* :call IsReply()
-    autocmd VimEnter /tmp/mutt* :execute 'startinsert'
+    autocmd VimEnter /tmp/neomutt* :call IsReply()
+    autocmd VimEnter /tmp/neomutt* :execute 'startinsert | redraw'
 augroup END
 
 setlocal spell
