@@ -4,14 +4,15 @@ call plug#begin()
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'benekastah/neomake'
 Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
-Plug 'FStarLang/VimFStar'
-Plug 'h1mesuke/vim-unittest'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
@@ -26,8 +27,6 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/a.vim'
-Plug 'vim-scripts/gitignore'
 
 call plug#end()
 
@@ -103,6 +102,9 @@ augroup filegroup
     autocmd VimLeave * CurrentSessionSave
 augroup END
 
+" Disable backup for gopass files.
+autocmd BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+
 " Disable F1, ex mode and Ctrl-Z shortcuts.
 map <F1> <nop>
 imap <F1> <nop>
@@ -119,6 +121,9 @@ vmap <C-c> <nop>
 " Disable Tab.
 inoremap <Tab> <nop>
 vnoremap <Tab> <nop>
+
+" Disable nbsp
+inoremap   <nop>
 
 " Shorcuts.
 " Go to alternate buffer.
@@ -186,6 +191,7 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y><cr>" : "\<CR>")
 let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 
 " Neomake
+let g:neomake_logfile = '/tmp/neomake.log'
 let g:neomake_open_list = 2
 let g:neomake_asciidoc_enabled_makers = []
 call neomake#configure#automake('w')
@@ -198,7 +204,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['cargo', 'run', '--release', '--manifest-path=/home/bouanto/Telechargements/Source/rls/Cargo.toml'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
 
 " GUndo

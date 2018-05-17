@@ -38,3 +38,4 @@
     sp = stash pop
     ss = stash show
     st = stash
+    us = submodule update --recursive --remote

@@ -148,7 +148,7 @@ bindsym $mod+o mode "resize"
 bar {
     font pango: DejaVu Sans 11
     position top
-    status_command statusbar.py
+    status_command statusbar
     tray_output primary
 }
 

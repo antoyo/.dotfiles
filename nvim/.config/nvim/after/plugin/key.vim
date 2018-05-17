@@ -1,6 +1,3 @@
-iunmap <Leader>ihn
-iunmap <Leader>is
-iunmap <Leader>ih
 nunmap <Leader>gu
 
 " Move by screen line instead of file line (only when not giving a <count>

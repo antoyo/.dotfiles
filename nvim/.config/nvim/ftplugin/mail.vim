@@ -1,4 +1,4 @@
-function IsReply()
+function! IsReply()
     if line('$') > 1
         :%!par w72q
         :%s/^.\+\ze\n\(>*$\)\@!/\0 /e

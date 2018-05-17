@@ -2,11 +2,10 @@ include keys
 include webkit
 include marks
 
-set home-page = https://searx.me/
+set home-page = https://duckduckgo.com/lite/?k1=-1
 
 # Search engines.
-search-engine p https://searx.me/?q={}
-search-engine d https://duckduckgo.com/lite/?q={}
+search-engine d https://duckduckgo.com/lite/?k1=-1&q={}
 search-engine wt http://fr.wiktionary.org/w/index.php?search={}
 search-engine wte http://en.wiktionary.org/w/index.php?search={}
 search-engine wp https://fr.wikipedia.org/w/index.php?search={}

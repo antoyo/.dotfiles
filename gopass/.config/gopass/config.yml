@@ -1,0 +1,13 @@
+root:
+  askformore: false
+  autoimport: true
+  autosync: false
+  cliptimeout: 45
+  noconfirm: true
+  nopager: false
+  path: /home/bouanto/.password-store
+  safecontent: true
+  usesymbols: true
+  nocolor: false
+mounts: {}
+version: 1.6.11

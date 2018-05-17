@@ -32,10 +32,10 @@ bind index,pager,attach , reply
 bind index,pager B sidebar-toggle-visible
 macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
 
-source ~/.mutt/gpg.rc
 source ~/.mutt/theme
 
 # Settings.
+set crypt_use_gpgme=yes
 set mail_check = 120
 set mail_check_stats = yes
 set sleep_time = 0
@@ -68,6 +68,9 @@ set crypt_replysign = yes
 set crypt_replyencrypt = yes
 set crypt_replysignencrypted = yes
 set crypt_verify_sig = yes
+set pgp_self_encrypt = yes
+#set pgp_default_key = 0478CDC1
+set pgp_self_encrypt_as = 0478CDC1 # TODO: replace by the previous line.
 set pgp_sign_as = 0478CDC1
 set pgp_use_gpg_agent = yes
 
@@ -80,5 +83,4 @@ source ~/.mutt/accounts/zoho
 set realname='Antoni Boucher'
 set use_from = yes
 
-folder-hook Openmailbox/* source ~/.mutt/accounts/openmailbox
 folder-hook Zoho/* source ~/.mutt/accounts/zoho
