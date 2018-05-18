@@ -72,7 +72,7 @@ metadata = ~/.local/share/offlineimap
 #
 # Always use ASCII characters only.
 #
-accounts = Adgear,Openmailbox,Zoho
+accounts = Adgear,Zoho
 
 
 # This option stands in the [general] section.
@@ -86,7 +86,7 @@ accounts = Adgear,Openmailbox,Zoho
 # sync run never "finishes" due to a timer, you will never sync your additional
 # accounts if this is 1.
 #
-maxsyncaccounts = 3
+maxsyncaccounts = 2
 
 
 # This option stands in the [general] section.
@@ -417,11 +417,6 @@ autorefresh = 5
 #
 #proxy = SOCKS5:IP:9999
 
-[Account Openmailbox]
-
-localrepository = openmailbox-local
-remoterepository = openmailbox-remote
-
 [Repository zoho-local]
 
 # Each repository requires a "type" declaration. The types supported for
@@ -553,15 +548,6 @@ sync_deletes = yes
 #customflag_d = ToDo
 
 nametrans = lambda folder: re.sub('^Envoye$', 'Envoy&AOk-', folder)
-
-[Repository openmailbox-local]
-
-type = Maildir
-
-localfolders = ~/.config/offlineimap/Openmailbox
-
-sep = /
-sync_deletes = yes
 
 [Repository zoho-remote]
 
@@ -1210,23 +1196,6 @@ sync_deletes = yes
 # likely '/').
 #
 #copy_ignore_eval = lambda foldername: {'INBOX': [2, 3, 4]}.get(foldername)
-
-[Repository openmailbox-remote]
-
-type = IMAP
-
-remoteuser = bouanto@openmailbox.org
-remotepasseval = get_pass("openmailbox")
-remotehost = imap.openmailbox.org
-
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-holdconnectionopen = yes
-
-keepalive = 60
-
-folderfilter = lambda folder: folder in ['INBOX', 'Spam']
-sync_deletes = yes
 
 # GMail Adgear
 [Account Adgear]
