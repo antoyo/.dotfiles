@@ -1,0 +1,23 @@
+set adjust-open width
+
+# Adaptation à bépo
+
+# hjkl → ctsr
+map t scroll down
+map s scroll up
+map c scroll left
+map r scroll right
+
+# JK → TS
+map T navigate next
+map S navigate previous
+
+# r → p
+map p rotate rotate-cw
+
+# R → u
+map u reload
+
+# b ↔ a car le a est plus accessible
+map b adjust_window best-fit
+map a adjust_window width

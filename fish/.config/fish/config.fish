@@ -25,6 +25,10 @@ function tradfr
     trans -brief :fr "$argv"
 end
 
+function tpb
+    torrench -t "$argv"
+end
+
 # Abbreviations.
 abbr cb "cargo build"
 abbr cbr "cargo build --release"

@@ -38,6 +38,7 @@ set spelllang=fr
 set tags=./.tags
 set matchpairs+=<:> " Enable % to jump from < to >.
 set notimeout " Disable the timeout.
+set nottimeout
 
 let mapleader = "\<Space>"
 

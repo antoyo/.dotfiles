@@ -1,13 +1,16 @@
 root:
   askformore: false
+  autoclip: false
   autoimport: true
   autosync: false
   cliptimeout: 45
+  editrecipients: false
+  nocolor: false
   noconfirm: true
   nopager: false
-  path: /home/bouanto/.password-store
+  path: gpgcli-gitcli-fs+file:///home/bouanto/.password-store
   safecontent: true
   usesymbols: true
-  nocolor: false
+  notifications: false
 mounts: {}
-version: 1.6.11
+version: 1.7.0
