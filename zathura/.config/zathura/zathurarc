@@ -21,3 +21,5 @@ map u reload
 # b ↔ a car le a est plus accessible
 map b adjust_window best-fit
 map a adjust_window width
+
+set recolor true
