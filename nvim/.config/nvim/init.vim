@@ -27,6 +27,7 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/a.vim'
 
 call plug#end()
 
@@ -39,6 +40,15 @@ set tags=./.tags
 set matchpairs+=<:> " Enable % to jump from < to >.
 set notimeout " Disable the timeout.
 set nottimeout
+set timeoutlen=0
+set ttimeoutlen=0
+
+" Disable the timeout in every mode except insert.
+augroup NoTimeout
+    autocmd!
+    autocmd InsertEnter * set timeout | set ttimeout
+    autocmd InsertLeave * set notimeout | set nottimeout
+augroup END
 
 let mapleader = "\<Space>"
 

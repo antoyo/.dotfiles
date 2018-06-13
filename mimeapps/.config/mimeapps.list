@@ -3,3 +3,5 @@
 text/html=titanium.desktop
 x-scheme-handler/http=titanium.desktop
 application/pdf=org.pwmt.zathura.desktop
+image/png=feh.desktop
+image/jpeg=feh.desktop
