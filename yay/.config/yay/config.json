@@ -12,6 +12,7 @@
     "answeredit": "",
     "editmenu": true,
     "diffmenu": false,
+    "answerdiff": "",
     "answerupgrade": "",
     "gitbin": "git",
     "gpgbin": "gpg",
@@ -25,5 +26,9 @@
     "timeupdate": false,
     "devel": false,
     "cleanAfter": false,
-    "gitclone": true
+    "gitclone": true,
+    "provides": true,
+    "pgpfetch": true,
+    "upgrademenu": true,
+    "cleanmenu": true
 }
