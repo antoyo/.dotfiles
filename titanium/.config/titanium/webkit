@@ -1,3 +1,5 @@
 set webkit-enable-developer-extras = true
 set webkit-javascript-can-open-windows-automatically = true
 set webkit-enable-webgl = true
+# set webkit-enable-mediasource = true
+set webkit-enable-webaudio = true

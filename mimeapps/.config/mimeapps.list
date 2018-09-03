@@ -5,3 +5,4 @@ x-scheme-handler/http=titanium.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/png=feh.desktop
 image/jpeg=feh.desktop
+image/svg+xml=titanium.desktop

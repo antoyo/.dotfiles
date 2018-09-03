@@ -84,3 +84,4 @@ set realname='Antoni Boucher'
 set use_from = yes
 
 folder-hook Zoho/* source ~/.mutt/accounts/zoho
+folder-hook NetCourrier/* source ~/.mutt/accounts/netcourrier

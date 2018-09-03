@@ -29,6 +29,7 @@
     m = merge
     ma = merge --abort
     mt = mergetool
+    pl = pull
     rc = rebase --continue
     ri = rebase --interactive
     ria = rebase --interactive --autosquash
