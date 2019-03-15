@@ -84,7 +84,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+d focus child
+#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+quotedbl workspace 1
@@ -198,14 +198,21 @@ bindsym $mod+Prior exec amixer -q set Master 5+
 bindsym $mod+Next exec amixer -q set Master 5-
 bindsym $mod+End exec $(amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
 
+# Screen management.
+bindsym $mod+p exec "tv"
+bindsym $mod+Shift+p exec "xrandr --output LVDS1 --auto --output HDMI1 --off"
+bindsym $mod+d exec "xrandr --output LVDS1 --mode 1366x768 --output VGA1 --left-of LVDS1 --mode 1920x1080"
+bindsym $mod+Shift+d exec "xrandr --output LVDS1 --auto --output VGA1 --off"
+
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr
-exec unclutter -root
+#exec unclutter -root
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 exec i3-msg exec 'termite -e "fish -c weechat"'
 exec offlineimap
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
-exec anamnesis --start
+#exec anamnesis --start
 exec xrandr --output VGA1 --auto --left-of LVDS1 --primary --output LVDS1 --auto
+exec redshift -t 6500k:4500k

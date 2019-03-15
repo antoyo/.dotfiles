@@ -1,6 +1,7 @@
 " Plugins.
 call plug#begin()
 
+Plug 'antoyo/ats-vim'
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
@@ -17,7 +18,9 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'neomutt/neomutt.vim'
 Plug 'racer-rust/vim-racer'
@@ -28,7 +31,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
-Plug 'vmchale/ats-vim'
 
 call plug#end()
 
@@ -225,3 +227,12 @@ let g:gundo_map_move_newer = "s"
 
 " Vimple fix.
 let vimple_init_vn = 0
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=8
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
