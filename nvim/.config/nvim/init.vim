@@ -14,7 +14,6 @@ Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -24,6 +23,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'neomutt/neomutt.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
@@ -65,6 +65,7 @@ set mouse= " Disable the mouse.
 set nofoldenable " Open all folds.
 set noshowmode " Hide the mode since the airline already shows it.
 set number
+set relativenumber
 set scrolloff=3 " Set to 3 the number of lines to keep above and below the cursor.
 set shortmess+=cI " Hide completion (c) and intro (I) message.
 set showcmd
@@ -227,6 +228,10 @@ let g:gundo_map_move_newer = "s"
 
 " Vimple fix.
 let vimple_init_vn = 0
+
+" Ncm
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1

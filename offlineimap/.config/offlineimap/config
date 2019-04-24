@@ -72,7 +72,7 @@ metadata = ~/.local/share/offlineimap
 #
 # Always use ASCII characters only.
 #
-accounts = Adgear,Zoho,NetCourrier
+accounts = Adgear,Zoho
 
 
 # This option stands in the [general] section.
@@ -86,7 +86,7 @@ accounts = Adgear,Zoho,NetCourrier
 # sync run never "finishes" due to a timer, you will never sync your additional
 # accounts if this is 1.
 #
-maxsyncaccounts = 3
+maxsyncaccounts = 2
 
 
 # This option stands in the [general] section.
@@ -1216,33 +1216,3 @@ remoteuser = antoni.boucher@adgear.com
 remotepasseval = get_pass("adgear")
 folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail', '[Gmail]/Important', '[Gmail]/Starred', '[Gmail]/Drafts']
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-[Account NetCourrier]
-
-localrepository = netcourrier-local
-remoterepository = netcourrier-remote
-
-autorefresh = 5
-
-[Repository netcourrier-local]
-
-type = Maildir
-localfolders = ~/.config/offlineimap/NetCourrier
-
-sep = /
-sync_deletes = yes
-
-[Repository netcourrier-remote]
-
-type = IMAP
-remotepasseval = get_pass("netcourrier")
-
-remotehost = mail.netcourrier.com
-
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-remoteuser = bouanto@netcourrier.com
-holdconnectionopen = yes
-keepalive = 60
-
-folderfilter = lambda folder: folder in ["inbox", "sent"]
-sync_deletes = yes
