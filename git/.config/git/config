@@ -16,6 +16,7 @@
     b = branch
     bd = branch --delete
     c = checkout
+    cr = clone --recursive -j8
     ca = commit --amend
     cb = checkout -b
     co = commit

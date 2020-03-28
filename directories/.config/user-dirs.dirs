@@ -1,3 +1,4 @@
+XDG_DESKTOP_DIR="$HOME"
 XDG_DOCUMENTS_DIR="$HOME/Documents"
 XDG_DOWNLOAD_DIR="$HOME/Telechargements"
 XDG_MUSIC_DIR="$HOME/Audio/Musique"

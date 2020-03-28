@@ -187,16 +187,16 @@ workspace chat output DVI-0
 
 # Application shortcuts.
 bindsym $mod+b exec termite -e newsboat
-bindsym $mod+c exec termite -e "fish -c weechat"
-bindsym $mod+m exec termite -e "fish -c neomutt"
+bindsym $mod+c exec termite -e "fish -c 'exec weechat'"
+bindsym $mod+m exec termite -e "fish -c 'exec neomutt'"
 bindsym $mod+u exec titanium
-bindsym $mod+v exec termite -e "fish -c nvim"
+bindsym $mod+v exec termite -e "fish -c 'exec nvim'"
 bindsym $mod+z exec zathura
 
 # Volume management.
-bindsym $mod+Prior exec amixer -q set Master 5+
-bindsym $mod+Next exec amixer -q set Master 5-
-bindsym $mod+End exec $(amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
+bindsym $mod+Prior exec pulsemixer --change-volume +5
+bindsym $mod+Next exec pulsemixer --change-volume -5
+bindsym $mod+End exec pulsemixer --toggle-mute
 
 # Screen management.
 bindsym $mod+p exec "tv"
@@ -216,3 +216,4 @@ exec setxkbmap my_bepo bepo # For rofi.
 #exec anamnesis --start
 exec xrandr --output VGA1 --auto --left-of LVDS1 --primary --output LVDS1 --auto
 exec redshift -t 6500k:4500k
+exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga

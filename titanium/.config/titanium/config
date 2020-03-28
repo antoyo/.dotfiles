@@ -2,7 +2,7 @@ include keys
 include webkit
 include marks
 
-set home-page = https://duckduckgo.com/lite/?k1=-1
+set home-page = https://duckduckgo.com/lite
 
 # Search engines.
 search-engine d https://duckduckgo.com/lite/?k1=-1&q={}

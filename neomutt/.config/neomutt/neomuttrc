@@ -32,7 +32,7 @@ bind index,pager,attach , reply
 bind index,pager B sidebar-toggle-visible
 macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
 
-source ~/.mutt/theme
+source ~/.config/neomutt/theme
 
 # Settings.
 set crypt_use_gpgme=yes
@@ -41,7 +41,7 @@ set mail_check_stats = yes
 set sleep_time = 0
 set header_cache = ~/.cache/mutt
 set message_cachedir = ~/.cache/mutt
-set mailcap_path = ~/.mutt/mailcap
+set mailcap_path = ~/.config/neomutt/mailcap
 alternative_order text/plain text/html
 auto_view text/html
 set sort=threads

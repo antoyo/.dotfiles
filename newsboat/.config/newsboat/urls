@@ -1,7 +1,12 @@
 https://www.archlinux.org/feeds/news/
 http://www.commitstrip.com/fr/feed/
-http://relm.ml/atom.xml
-http://antoyo.ml/atom.xml
-http://tql-rs.ml/atom.xml
+https://relm.antoyo.xyz/atom.xml
+https://blog.antoyo.xyz/atom.xml
+https://tql.antoyo.xyz/atom.xml
 http://preshing.com/feed
-https://www.reddit.com/r/ATS/.rss
+https://www.pine64.org/feed/
+https://puri.sm/feed/
+https://hnrss.org/whoishiring/jobs
+https://www.reddit.com/r/ProgrammingLanguages/.rss
+https://www.reddit.com/r/Compilers/.rss
+http://pling.jondgoodwin.com/tags/cone/index.xml

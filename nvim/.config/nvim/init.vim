@@ -1,7 +1,6 @@
 " Plugins.
 call plug#begin()
 
-Plug 'antoyo/ats-vim'
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
@@ -22,7 +21,6 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'neomutt/neomutt.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -115,6 +113,8 @@ augroup filegroup
     autocmd FileType python setlocal autoindent
     autocmd FileType asciidoc set nospell
     autocmd VimLeave * CurrentSessionSave
+    autocmd FileType asciidoc setlocal shiftwidth=4
+    autocmd BufRead *.tig set filetype=javascript
 augroup END
 
 " Disable backup for gopass files.
@@ -194,14 +194,6 @@ nnoremap <Leader>w :w<CR>
 command! GpushNew :Gpush origin -u HEAD
 
 " Plugin configuration.
-" Vim Racer
-let g:racer_cmd = '/usr/bin/racer'
-let g:racer_no_default_keymappings = 1
-let $RUST_SRC_PATH = '/usr/src/rust/src/'
-
-" Nvim completion Manager.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y><cr>" : "\<CR>")
-
 " Licenses
 let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 
@@ -221,6 +213,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
+let g:LanguageClient_useVirtualText = 0
 
 " GUndo
 let g:gundo_map_move_older = "t"
@@ -230,8 +223,10 @@ let g:gundo_map_move_newer = "s"
 let vimple_init_vn = 0
 
 " Ncm
-autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * call ncm2#enable_for_buffer() " Enable ncm2 for all buffers.
 set completeopt=noinsert,menuone,noselect
+" Enter newline instead of just closing the completion popup on enter.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1

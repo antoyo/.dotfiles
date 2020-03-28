@@ -2,7 +2,7 @@
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
-mouse_autohide = false
+mouse_autohide = true
 allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
@@ -42,7 +42,7 @@ background = #000000
 #background = rgba(63, 63, 63, 0.8)
 
 # if unset, will reverse foreground and background
-highlight = #2f2f2f
+highlight = #AF9800
 
 # colors from color0 to color254 can be set
 color0 = #000000

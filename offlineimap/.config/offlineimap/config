@@ -199,7 +199,7 @@ pythonfile = ~/.config/offlineimap/offlineimap.py
 # for "filename" knob.
 #
 enabled = yes
-filename = ~/.mutt/mailboxes
+filename = ~/.local/share/neomutt/mailboxes
 header = "mailboxes "
 peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
@@ -1113,7 +1113,7 @@ nametrans = lambda folder: re.sub('^Envoy&AOk-$', 'Envoye', folder)
 #folderfilter = lambda foldername: foldername in [
 #    'INBOX', 'Sent Mail',
 #    'Deleted Items', 'Received']
-folderfilter = lambda folder: folder in ['Condo', 'Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Autre', 'Livre', 'Mensa', 'Services', 'Spam', 'Voyages']
+folderfilter = lambda folder: folder in ['Condo', 'Echecs', 'Emploi', 'Envoy&AOk-', 'INBOX', 'Autre', 'Livre', 'Mensa', 'Psycho', 'Services', 'Spam', 'Voyages']
 
 # This option stands in the [Repository RemoteExample] section.
 #
