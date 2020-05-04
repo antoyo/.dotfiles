@@ -53,6 +53,7 @@ set folder=~/.config/offlineimap
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_width = 25
 set sidebar_visible = yes
+set sidebar_short_path=yes
 bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open

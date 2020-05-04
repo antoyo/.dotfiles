@@ -9,6 +9,14 @@ function add_event
     ics2rem $argv[1] >> ~/.config/remind/reminders.rem
 end
 
+function cd
+    if count $argv > /dev/null
+        builtin cd "$argv"; and ls
+    else
+        builtin cd ~; and ls
+    end
+end
+
 function mkc
     mkdir $argv[1]; cd $argv[1]
 end
