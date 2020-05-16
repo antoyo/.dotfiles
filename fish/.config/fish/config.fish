@@ -1,3 +1,17 @@
+function increment
+    set line (commandline)
+    set episode (string match -r "E\d\d" $line)
+    set num (string sub -s 2 $episode)
+    set next (math $num + 1)
+    set next (printf %02d $next)
+    set next_episode (string replace $episode "E$next" $line)
+    commandline $next_episode
+end
+
+function fish_user_key_bindings
+    bind \es 'increment'
+end
+
 function fish_prompt
     set last_status $status
     set_color $fish_color_cwd
