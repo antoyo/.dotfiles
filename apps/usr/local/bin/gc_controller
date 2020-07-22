@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#sudo wii-u-gc-adapter &
+
+xboxdrv --evdev /dev/input/event21 --evdev-absmap ABS_Y=y1,ABS_X=x1,ABS_RX=x2,ABS_RY=y2,ABS_Z=lt,ABS_RZ=rt --axismap -Y1=Y1,-Y2=Y2 --evdev-keymap BTN_START=start,BTN_WEST=b,BTN_SOUTH=a,BTN_NORTH=x,BTN_EAST=y,BTN_TR2=rb,BTN_DPAD_DOWN=dd,BTN_DPAD_UP=du,BTN_DPAD_LEFT=dl,BTN_DPAD_RIGHT=dr --mimic-xpad --silent

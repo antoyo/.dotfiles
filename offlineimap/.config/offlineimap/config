@@ -72,7 +72,7 @@ metadata = ~/.local/share/offlineimap
 #
 # Always use ASCII characters only.
 #
-accounts = Adgear,Zoho
+accounts = Zoho
 
 
 # This option stands in the [general] section.
@@ -1196,23 +1196,3 @@ sync_deletes = yes
 # likely '/').
 #
 #copy_ignore_eval = lambda foldername: {'INBOX': [2, 3, 4]}.get(foldername)
-
-# GMail Adgear
-[Account Adgear]
-localrepository = adgear-local
-remoterepository = adgear-remote
-autorefresh = 5
-quick = 10
-
-[Repository adgear-local]
-type = Maildir
-localfolders = ~/.config/offlineimap/Adgear
-
-[Repository adgear-remote]
-type = Gmail
-keepalive = 60
-holdconnectionopen = yes
-remoteuser = antoni.boucher@adgear.com
-remotepasseval = get_pass("adgear")
-folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail', '[Gmail]/Important', '[Gmail]/Starred', '[Gmail]/Drafts']
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt

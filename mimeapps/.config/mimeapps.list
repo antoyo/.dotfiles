@@ -1,8 +1,8 @@
-
 [Default Applications]
-text/html=titanium.desktop
-x-scheme-handler/http=titanium.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/png=feh.desktop
 image/jpeg=feh.desktop
 image/svg+xml=titanium.desktop
+image/bmp=feh.desktop
+image/gif=feh.desktop
+image/tiff=feh.desktop

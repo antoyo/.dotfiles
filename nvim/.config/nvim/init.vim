@@ -201,7 +201,7 @@ let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 let g:neomake_logfile = '/tmp/neomake.log'
 let g:neomake_open_list = 2
 let g:neomake_asciidoc_enabled_makers = []
-call neomake#configure#automake('w')
+"call neomake#configure#automake('w')
 
 " Airline
 set laststatus=2

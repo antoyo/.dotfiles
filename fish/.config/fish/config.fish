@@ -1,10 +1,9 @@
 function increment
     set line (commandline)
-    set episode (string match -r "E\d\d" $line)
-    set num (string sub -s 2 $episode)
-    set next (math $num + 1)
+    set episode (string match -r "\d+" $line)
+    set next (math $episode + 1)
     set next (printf %02d $next)
-    set next_episode (string replace $episode "E$next" $line)
+    set next_episode (string replace $episode "$next" $line)
     commandline $next_episode
 end
 
@@ -79,6 +78,7 @@ alias mount "udisksctl mount -b"
 alias mount_cd "udisksctl mount -b /dev/sr0"
 alias mpl "mpv --video-aspect-override=16:9"
 alias mv "mv -i"
+alias objdump "objdump -M intel-syntax"
 alias nvimconfig "cd ~/.config/nvim; nvim init.vim"
 alias perf-annotate "perf annotate -M intel"
 alias reminders "nvim ~/.config/remind/reminders.rem"

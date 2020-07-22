@@ -41,3 +41,5 @@
     ss = stash show
     st = stash
     us = submodule update --recursive --remote
+[pull]
+	ff = only
