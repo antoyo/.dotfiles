@@ -11,12 +11,7 @@ function fish_user_key_bindings
     bind \es 'increment'
 end
 
-function fish_prompt
-    set last_status $status
-    set_color $fish_color_cwd
-    printf '%s ' (prompt_pwd)
-    set_color normal
-end
+source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
 
 function add_event
     ics2rem $argv[1] >> ~/.config/remind/reminders.rem
