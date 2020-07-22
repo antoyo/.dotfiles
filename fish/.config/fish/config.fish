@@ -88,3 +88,7 @@ alias mp3you "youtube-dl-mp3 --default-search 'ytsearch'"
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
 end
+
+# Exports.
+set -x BROWSER titanium
+set -x EDITOR nvim
