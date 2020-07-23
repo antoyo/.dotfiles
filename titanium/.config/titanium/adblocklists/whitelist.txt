@@ -1,0 +1,3 @@
+@@||github.com/adgear
+@@||gopass.pw
+@@||travis-ci.com/github/adgear
