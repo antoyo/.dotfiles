@@ -235,5 +235,4 @@ exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
 #exec anamnesis --start
 exec xrandr --output VGA1 --auto --left-of LVDS1 --primary --output LVDS1 --auto
-exec redshift -t 6500k:4500k
 exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
