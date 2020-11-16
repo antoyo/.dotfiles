@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 

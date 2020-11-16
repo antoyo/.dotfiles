@@ -1,6 +1,6 @@
 [user]
-    email = bouanto@zoho.com
-    name = Antoni Boucher
+	email = bouanto@zoho.com
+	name = Antoni Boucher
 [push]
     default = simple
 [diff]
@@ -43,3 +43,10 @@
     us = submodule update --recursive --remote
 [pull]
 	ff = only
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[sendemail]
+	smtpserver = /usr/bin/msmtp

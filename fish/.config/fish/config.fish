@@ -13,6 +13,10 @@ end
 
 source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
 
+function bsixdec
+    echo "$argv[1]" | base64 -d
+end
+
 function add_event
     ics2rem $argv[1] >> ~/.config/remind/reminders.rem
 end
@@ -78,12 +82,13 @@ alias nvimconfig "cd ~/.config/nvim; nvim init.vim"
 alias perf-annotate "perf annotate -M intel"
 alias reminders "nvim ~/.config/remind/reminders.rem"
 alias rm "rm -i"
+alias stow "stow --no-folding"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
 alias unmount "udisksctl unmount -b"
 alias unmount_cd "udisksctl unmount -b /dev/sr0"
 alias urlsnews "nvim ~/.config/newsboat/urls"
 alias you "youtube-dl --no-playlist"
-alias mp3you "youtube-dl-mp3 --default-search 'ytsearch'"
+alias mp3you "youtube-dlc --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
@@ -92,3 +97,4 @@ end
 # Exports.
 set -x BROWSER titanium
 set -x EDITOR nvim
+set -x TITANIUM_EXTENSION_INSTALL_PATH /usr/local/lib/titanium/web-extensions

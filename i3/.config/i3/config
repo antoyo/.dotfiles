@@ -150,10 +150,8 @@ bindsym $mod+o mode "resize"
 # Set the shortcuts and what they do
 set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
 mode "$mode_display" {
-    bindsym v exec --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1, mode "default"
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --left-of LVDS1, mode "default"
-    bindsym x exec --no-startup-id xrandr --output VGA1 --auto --off, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI-A-0 --auto, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI-A-0 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -195,6 +193,7 @@ bindsym Control+$mod+l exec --no-startup-id $Locker
 # Disable floating for softwares.
 for_window [title="Inspecteur Web"] floating disable
 for_window [title="Peshk"] floating disable
+for_window [title="Citra \| Tri Force Heroes"] floating enable, move position -2 px -22 px, resize set width 3204 px height 1104 px
 
 # Mouse.
 focus_follows_mouse no
@@ -203,7 +202,6 @@ mouse_warping none
 # Workspace.
 workspace_layout tabbed
 workspace_auto_back_and_forth yes
-workspace chat output DVI-0
 
 # Application shortcuts.
 bindsym $mod+b exec termite -e newsboat
@@ -219,7 +217,6 @@ bindsym $mod+Next exec pulsemixer --change-volume -5
 bindsym $mod+End exec pulsemixer --toggle-mute
 
 # Screen management.
-bindsym $mod+p exec "tv"
 bindsym $mod+Shift+p exec "xrandr --output LVDS1 --auto --output HDMI1 --off"
 bindsym $mod+d exec "xrandr --output LVDS1 --mode 1366x768 --output VGA1 --left-of LVDS1 --mode 1920x1080"
 bindsym $mod+Shift+d exec "xrandr --output LVDS1 --auto --output VGA1 --off"
@@ -234,5 +231,4 @@ exec offlineimap
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
 #exec anamnesis --start
-exec xrandr --output VGA1 --auto --left-of LVDS1 --primary --output LVDS1 --auto
-exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
+exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
