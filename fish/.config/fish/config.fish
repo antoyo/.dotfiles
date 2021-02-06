@@ -11,7 +11,11 @@ function fish_user_key_bindings
     bind \es 'increment'
 end
 
-source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
+if set -q SSH_CLIENT; or set -q SSH_TTY
+    source /usr/share/fish/tools/web_config/sample_prompts/classic_status.fish
+else
+    source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
+end
 
 function add_event
     ics2rem $argv[1] >> ~/.config/remind/reminders.rem

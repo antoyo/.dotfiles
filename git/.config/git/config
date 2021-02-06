@@ -41,5 +41,10 @@
     ss = stash show
     st = stash
     us = submodule update --recursive --remote
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
