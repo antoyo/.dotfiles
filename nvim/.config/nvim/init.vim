@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 
@@ -120,6 +121,9 @@ augroup END
 " Disable backup for gopass files.
 autocmd BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 
+" Check if a file was modified externally when entering the buffer/window.
+autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+
 " Disable F1, ex mode and Ctrl-Z shortcuts.
 map <F1> <nop>
 imap <F1> <nop>
@@ -127,6 +131,7 @@ nnoremap Q <nop>
 nnoremap <Space><Space> <nop>
 nnoremap <C-Z> <nop>
 nnoremap q: <nop>
+nnoremap q/ <nop>
 
 " Disable Ctrl-C.
 cmap <C-c> <nop>
@@ -174,11 +179,15 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>A O<Esc>
 nnoremap <expr> <Leader>a &modifiable?"o<Esc>":"<CR>"
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>d :call LanguageClient_textDocument_definition()<CR>
 nnoremap <Leader>e :set spelllang=en<CR>:set spell<CR>
+nnoremap <Leader>f :call LanguageClient_textDocument_codeAction()<CR>
 nnoremap <Leader>g :Rg 
 nnoremap <Leader>h :hide<CR>
+nnoremap <Leader>H :call LanguageClient_textDocument_hover()<CR>
 nnoremap <Leader>l "*p
 nnoremap <Leader>L "*P
+nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
 nnoremap <Leader>n :only<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
@@ -211,9 +220,14 @@ let g:airline#extensions#tabline#enabled = 1
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rust-analyzer'],
+    \ 'python': ['pyls'],
     \ }
-let g:LanguageClient_useVirtualText = 0
+let g:LanguageClient_useVirtualText = "No"
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_loggingLEvel = 'DEBUG'
+let g:LanguageClient_loggingFile = expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_settingsPath = expand('~/.config/nvim/lsp.json')
 
 " GUndo
 let g:gundo_map_move_older = "t"
@@ -227,6 +241,9 @@ autocmd BufEnter * call ncm2#enable_for_buffer() " Enable ncm2 for all buffers.
 set completeopt=noinsert,menuone,noselect
 " Enter newline instead of just closing the completion popup on enter.
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Fzf
+let g:fzf_layout = { 'down': '40%' }
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
