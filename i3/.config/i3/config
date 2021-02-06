@@ -148,10 +148,12 @@ bindsym $mod+o mode "resize"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+set $mode_display Ext Screen (v) DVI ON, (h) HDMI ON, (x) DVI OFF, (y) HDMI OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI-A-0 --auto, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI-A-0 --auto --off, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of DVI-D-0 --primary, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI-A-0 --off, mode "default"
+    bindsym v exec --no-startup-id xrandr --output DVI-D-0 --auto --right-of HDMI-A-0, mode "default"
+    bindsym x exec --no-startup-id xrandr --output DVI-D-0 --off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -170,7 +172,7 @@ bar {
     tray_output primary
 }
 
-set $Locker i3lock -i ~/.config/i3/images/screenlocker.png -t && sleep 1
+set $Locker i3lock -i ~/.config/i3/images/screenlocker.png -t & sleep 5 && xset dpms force off
 
 # Power management.
 set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, (r) reboot, (s) shutdown
@@ -220,6 +222,9 @@ bindsym $mod+End exec pulsemixer --toggle-mute
 bindsym $mod+Shift+p exec "xrandr --output LVDS1 --auto --output HDMI1 --off"
 bindsym $mod+d exec "xrandr --output LVDS1 --mode 1366x768 --output VGA1 --left-of LVDS1 --mode 1920x1080"
 bindsym $mod+Shift+d exec "xrandr --output LVDS1 --auto --output VGA1 --off"
+# TODO: replace with:
+# xrandr --output DVI-D-0 --auto --output HDMI-A-0 --off
+# xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
 
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr
