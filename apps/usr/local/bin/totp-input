@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gopass ls --flat | rofi -show -dmenu | xargs --no-run-if-empty gopass totp | cut -f1 -d' ' | xdotool type --clearmodifiers --file -
+gopass ls --flat | wofi --show dmenu | xargs --no-run-if-empty gopass totp | cut -f1 -d' ' | wtype -
