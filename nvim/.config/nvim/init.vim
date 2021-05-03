@@ -222,6 +222,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
     \ 'python': ['pyls'],
+    \ 'c': ['clangd'],
     \ }
 let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_autoStart = 1

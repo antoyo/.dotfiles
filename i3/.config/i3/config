@@ -197,6 +197,7 @@ bindsym Control+$mod+l exec --no-startup-id $Locker
 for_window [title="Inspecteur Web"] floating disable
 for_window [title="Peshk"] floating disable
 for_window [title="Citra \| Tri Force Heroes"] floating enable, move position -2 px -22 px, resize set width 3204 px height 1104 px
+for_window [title="Android Emulator"] floating enable
 
 # Mouse.
 focus_follows_mouse no
