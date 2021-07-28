@@ -210,7 +210,7 @@ workspace_auto_back_and_forth yes
 # Application shortcuts.
 bindsym $mod+b exec liferea
 bindsym $mod+c exec nheko
-bindsym $mod+m exec evolution
+bindsym $mod+m exec evolution --force-online
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec titanium
 bindsym $mod+v exec termite -e "fish -c 'exec nvim'"
@@ -242,7 +242,8 @@ exec setxkbmap my_bepo bepo # For rofi.
 exec --no-startup-id i3-autodisplay
 exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
-exec evolution
+exec evolution --force-online
 exec pidgin
 exec nheko
 exec liferea --mainwindow-state=hidden
+exec nextcloud

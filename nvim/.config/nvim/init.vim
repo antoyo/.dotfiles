@@ -86,7 +86,12 @@ set incsearch " Enable incremental search.
 set expandtab " Convert inserted tabs to spaces.
 set formatoptions=ro " Insert comment leader when hitting Enter or o/O.
 set shiftwidth=4 " Auto-indent this number of space.
-set tabstop=4 " Tabs will be shown on 4 characters.
+set tabstop=8 " Tabs will be shown on 4 characters.
+
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 
 " Abbreviation.
 iabbrev èèè ```<CR><CR>```
@@ -173,6 +178,12 @@ command! -bang -nargs=* Rgw
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+command! -bang -nargs=* Grep
+  \ :grep <q-args> | :copen
+
+command! -bang -nargs=* GrepW
+  \ :grep '\b<args>\b' | :copen
+
 " TODO: add shorcuts to switch or delete buffers.
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Open new lines without going to insert mode.
@@ -193,6 +204,7 @@ nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 nnoremap <Leader>* :Rgw <C-R><C-W><CR>
+nnoremap <Leader>r :GrepW <C-R><C-W><CR>
 nnoremap <Leader>q :update<CR>:q<CR>
 nnoremap <Leader>s /\<\><Left><Left>
 nnoremap <Leader>u :GundoToggle<CR>

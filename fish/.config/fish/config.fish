@@ -92,7 +92,7 @@ alias unmount "udisksctl unmount -b"
 alias unmount_cd "udisksctl unmount -b /dev/sr0"
 alias urlsnews "nvim ~/.config/newsboat/urls"
 alias you "youtube-dl --no-playlist"
-alias mp3you "youtube-dlc --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias mp3you "youtube-dl --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
