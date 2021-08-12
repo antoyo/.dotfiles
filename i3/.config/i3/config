@@ -27,7 +27,7 @@ font pango: DejaVu Sans 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+b kill
@@ -213,7 +213,7 @@ bindsym $mod+c exec nheko
 bindsym $mod+m exec evolution --force-online
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec titanium
-bindsym $mod+v exec termite -e "fish -c 'exec nvim'"
+bindsym $mod+v exec alacritty -e fish -c 'exec nvim'
 bindsym $mod+z exec zathura
 bindsym $mod+f exec dbus-send --session --print-reply --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.ShowNotifications
 
