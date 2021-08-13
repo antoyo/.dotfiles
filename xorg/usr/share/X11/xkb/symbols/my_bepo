@@ -91,5 +91,5 @@ xkb_symbols "bepo" {
     //key <AB09> { [               h,            H,         dagger,   doubledagger ] }; // h H † ‡
     //key <AB10> { [               f,            F,    dead_ogonek,    ordfeminine ] }; // f F ̨ ª
 
-    //key <SPCE> { [           space, nobreakspace,     underscore,          U202F ] }; // ␣ (espace insécable) _ (espace insécable fin)
+    key <SPCE> { [           space, space,     underscore,          underscore ] };
 };

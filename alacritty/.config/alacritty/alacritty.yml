@@ -517,10 +517,17 @@ hints:
      binding:
        key: U
        mods: Control|Shift
+   # Git hashes.
    - regex: "[a-f0-9]{40}"
      action: Copy
      binding:
        key: G
+       mods: Control|Shift
+   # Rust code suggestions.
+   - regex: "`(.+)`" # TODO: don't copy the surroundings ` .
+     action: Copy
+     binding:
+       key: R
        mods: Control|Shift
 
 
@@ -760,6 +767,8 @@ key_bindings:
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
   #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
+  - { key: Up,    mods: Shift|Control,   mode: ~Alt,        action: ScrollLineUp,  }
+  - { key: Down,    mods: Shift|Control,   mode: ~Alt,        action: ScrollLineDown,  }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
@@ -767,7 +776,8 @@ key_bindings:
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
-  #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
+  - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
+  - { key: Escape,                      mode: Vi|~Search, action: ToggleViMode          }
   #- { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
