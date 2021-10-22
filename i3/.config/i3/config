@@ -247,3 +247,4 @@ exec pidgin
 exec nheko
 exec liferea --mainwindow-state=hidden
 exec nextcloud
+exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
