@@ -221,3 +221,4 @@ exec evolution
 exec pidgin # TODO: move on right screen.
 # TODO: alarm when battery is low.
 # TODO: install clipman?
+# TODO: Fix notification icon in waybar (it doesn't always show; seems like when there's a window focused, it doesn't show up).
