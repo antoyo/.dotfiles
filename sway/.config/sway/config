@@ -199,14 +199,17 @@ bindsym Print exec grim -t png -g "$(slurp)" ~/Images/Screenshots/$(date +%Y-%m-
 #bindsym $mod+Shift+d exec "xrandr --output LVDS1 --auto --output VGA1 --off"
 
 # Autostart applications.
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swaync
 #exec uniconize # TODO: uninstall
 exec nm-applet --indicator
 
-input * xkb_layout "my_bepo"
-input * xkb_variant "bepo"
-input * xkb_options "caps:escape"
-input * xkb_numlock enable
+input "type:keyboard" {
+    xkb_layout "my_bepo"
+    xkb_variant "bepo"
+    xkb_options "caps:escape"
+    xkb_numlock enable
+}
 
 output HDMI-A-1 pos 0 0 res 1920x1080
 output DVI-D-1 pos 1920 0 res 1920x1080
@@ -217,3 +220,4 @@ exec nheko
 exec evolution
 exec pidgin # TODO: move on right screen.
 # TODO: alarm when battery is low.
+# TODO: install clipman?
