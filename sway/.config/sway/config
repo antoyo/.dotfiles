@@ -18,7 +18,7 @@ bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+b kill
-bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill
+bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill # TODO: switch to ydotool
 
 # start wofi (a program launcher)
 bindsym $mod+i exec --no-startup-id rofi -show run
@@ -216,4 +216,4 @@ output "*" bg ~/.config/sway/images/wallpaper.png fill
 exec nheko
 exec evolution
 exec pidgin # TODO: move on right screen.
-# TODO: 
+# TODO: alarm when battery is low.
