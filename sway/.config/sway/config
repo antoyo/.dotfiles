@@ -1,5 +1,6 @@
 # sway config file
 
+# FIXME: fix inserting password.
 # FIXME: seems like window urgency is not shown.
 
 set $mod Mod4
@@ -18,10 +19,10 @@ bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+b kill
-bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill # TODO: switch to ydotool
+bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill # TODO: switch to a wayland equivalent.
 
 # start wofi (a program launcher)
-bindsym $mod+i exec --no-startup-id rofi -show run
+bindsym $mod+i exec rofi -show run
 
 # change focus
 bindsym $mod+t focus left
@@ -138,12 +139,12 @@ set $Locker gpg-connect-agent --no-autostart reloadagent /bye & swaylock & sleep
 # Power management.
 set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id swaymsg exit, mode "default"
-    bindsym Shift+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l exec $Locker, mode "default"
+    bindsym e exec swaymsg exit, mode "default"
+    bindsym Shift+s exec $Locker && systemctl suspend, mode "default"
+    bindsym h exec $Locker && systemctl hibernate, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym s exec systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -151,7 +152,7 @@ mode "$mode_system" {
 }
 bindsym Control+$mod+q mode "$mode_system"
 
-bindsym Control+$mod+l exec --no-startup-id $Locker
+bindsym Control+$mod+l exec $Locker
 
 # Disable floating for softwares.
 for_window [title="Inspecteur Web"] floating disable
@@ -173,13 +174,14 @@ bar {
 }
 
 # Application shortcuts.
-bindsym $mod+b exec liferea
+bindsym $mod+b exec liferea # TODO: switch to another RSS reader using libappindicator.
 bindsym $mod+c exec nheko
 bindsym $mod+m exec mounter
 bindsym $mod+u exec titanium
 bindsym $mod+v exec alacritty -e fish -c 'exec nvim'
 bindsym $mod+z exec zathura
 bindsym $mod+f exec swaync-client -t
+bindsym $mod+p exec pcmanfm
 
 # Volume management.
 bindsym $mod+Prior exec pulsemixer --change-volume +5
@@ -217,7 +219,8 @@ output DVI-D-1 pos 1920 0 res 1920x1080
 output "*" bg ~/.config/sway/images/wallpaper.png fill
 
 exec nheko
-exec evolution
+# Use x11 backend for evolution to avoid a crash on reply.
+exec env GDK_BACKEND=x11 evolution
 exec pidgin # TODO: move on right screen.
 # TODO: alarm when battery is low.
 # TODO: install clipman?
