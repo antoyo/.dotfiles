@@ -1,3 +1,5 @@
+zoxide init fish | source
+
 function increment
     set line (commandline)
     set episode (string match -r "\d+" $line)
@@ -23,6 +25,14 @@ end
 
 function add_event
     ics2rem $argv[1] >> ~/.config/remind/reminders.rem
+end
+
+function z
+    if count $argv > /dev/null
+        __zoxide_z "$argv"; and ls
+    else
+        __zoxide_z; and ls
+    end
 end
 
 function cd

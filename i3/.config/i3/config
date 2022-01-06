@@ -91,7 +91,7 @@ bindsym $mod+quotedbl workspace 1
 bindsym $mod+less workspace 2
 bindsym $mod+greater workspace 3
 bindsym $mod+parenleft workspace 4
-bindsym $mod+parenright workspace chat
+bindsym $mod+parenright workspace 5
 bindsym $mod+at workspace 6
 bindsym $mod+plus workspace 7
 bindsym $mod+minus workspace 8
@@ -103,7 +103,7 @@ bindsym $mod+Shift+quotedbl move container to workspace 1
 bindsym $mod+Shift+less move container to workspace 2
 bindsym $mod+Shift+greater move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace chat
+bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+at move container to workspace 6
 bindsym $mod+Shift+plus move container to workspace 7
 bindsym $mod+Shift+minus move container to workspace 8
