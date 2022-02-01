@@ -15,12 +15,14 @@
     ai = add -i
     b = branch
     bd = branch --delete
+    bl = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     c = checkout
     cr = clone --recursive -j8
     ca = commit --amend
     cb = checkout -b
     co = commit
     cp = cherry-pick
+    cpa = cherry-pick --abort
     cpc = cherry-pick --continue
     d = diff
     dc = diff --cached
@@ -31,6 +33,7 @@
     m = merge
     ma = merge --abort
     mt = mergetool
+    push-new = !git push --set-upstream origin HEAD
     pl = pull
     rc = rebase --continue
     ri = rebase --interactive

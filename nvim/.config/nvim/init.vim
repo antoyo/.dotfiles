@@ -233,8 +233,9 @@ let g:airline#extensions#tabline#enabled = 1
 " LanguageClient
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pyls'],
+    \ 'python': ['pylsp'],
     \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
     \ }
 let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_autoStart = 1
