@@ -1,0 +1,8 @@
+#logs > .js-full-logs-container {
+    height: auto !important;
+    overflow-y: visible !important;
+}
+
+.repository-content > div > div > div.flex-auto > div {
+    overflow-x: visible !important;
+}
