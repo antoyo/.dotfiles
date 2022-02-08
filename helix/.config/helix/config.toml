@@ -1,0 +1,28 @@
+theme = "bogster"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[keys.normal]
+# Char/line movement
+c = "move_char_left"
+r = "move_char_right"
+t = "move_line_down"
+s = "move_line_up"
+
+# Word movement
+"é" = "move_next_word_start"
+"É" = "move_next_long_word_start"
+
+# Change
+l = "change_selection"
+
+# Replace
+h = "replace"
+
+# Until
+j = "find_till_char"
+
+# Substitute
+k = "select_regex"
