@@ -10,6 +10,7 @@ c = "move_char_left"
 r = "move_char_right"
 t = "move_line_down"
 s = "move_line_up"
+"space" = { w = ":write", q = ":write-quit" }
 
 # Word movement
 "é" = "move_next_word_start"
