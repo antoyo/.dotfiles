@@ -10,7 +10,6 @@
 # Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 # 
 # Possibly config:
-# Remove unused keybindings (like zk).
 # Allow <Space>q to exit even when the buffer does not represent a file on disk.
 # Jump to next empty line.
 # Search word under the cursor (instead of words containing the word under the selection).
@@ -35,8 +34,6 @@ c = "move_char_left"
 r = "move_char_right"
 t = "move_line_down"
 s = "move_line_up"
-"space" = { w = ":write", q = ":write-quit-all!" }
-z = { t = "scroll_down", s = "scroll_up" }
 
 # Word movement
 "é" = "move_next_word_start"
@@ -50,6 +47,39 @@ h = "replace"
 
 # Until
 j = "find_till_char"
+
+# Substitute
+k = "select_regex"
+
+[keys.normal.space]
+w = ":write"
+q = ":write-quit-all!"
+
+[keys.normal.z]
+p = "scroll_up"
+n = "scroll_down"
+
+down = "no_op"
+k = "no_op"
+j = "no_op"
+up = "no_op"
+
+[keys.select]
+# Char/line movement
+c = "extend_char_left"
+r = "extend_char_right"
+t = "extend_line_down"
+s = "extend_line_up"
+
+# Word movement
+"é" = "extend_next_word_start"
+"É" = "extend_next_long_word_start"
+
+# Change
+l = "change_selection"
+
+# Until
+j = "extend_till_char"
 
 # Substitute
 k = "select_regex"
