@@ -1,22 +1,23 @@
 # To implement:
-# Increment next number in line.
-# Sessions.
-# Save files for crash.
-# Line wrapping (https://github.com/helix-editor/helix/issues/136).
-# Fuzzy search in results of a search command, not only in the file names.
-# Highlight search results.
-# Indenting (>) adds spaces on empty lines.
-# Partial loading of config.
+# Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
+# Jump to next empty line (https://github.com/helix-editor/helix/issues/1734).
 # Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
+# Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
+# Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
+# Highlight search results (https://github.com/helix-editor/helix/issues/1733).
+# Sessions (https://github.com/helix-editor/helix/issues/401).
+# Save files for crash (https://github.com/helix-editor/helix/issues/290).
+# Line wrapping (https://github.com/helix-editor/helix/issues/136).
+#
+# Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
 # 
 # Possibly config:
-# Allow <Space>q to exit even when the buffer does not represent a file on disk.
-# Jump to next empty line.
 # Search word under the cursor (instead of words containing the word under the selection).
 # Global search of the word under the cursor.
 # Remove completed text (by pressing ctrl-p, ctrl-n in cause you don't want any of the completions).
-# Ctrl-d to continue scrolling at the end.
-# Continue comment when pressing enter in insert mode.
+# Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
+# Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
+#
 # Case sensitive search (smart-case in next version).
 
 theme = "bogster"
