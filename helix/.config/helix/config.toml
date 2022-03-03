@@ -1,6 +1,6 @@
 # To implement:
 # Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
-# Jump to next empty line (https://github.com/helix-editor/helix/issues/1734).
+# Jump to next empty line (https://github.com/helix-editor/helix/issues/1580).
 # Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 # Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
 # Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
@@ -8,6 +8,7 @@
 # Sessions (https://github.com/helix-editor/helix/issues/401).
 # Save files for crash (https://github.com/helix-editor/helix/issues/290).
 # Line wrapping (https://github.com/helix-editor/helix/issues/136).
+# Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
 #
 # Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
 # 
