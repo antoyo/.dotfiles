@@ -1,24 +1,34 @@
 # To implement:
-# Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
-# Jump to next empty line (https://github.com/helix-editor/helix/issues/1580).
-# Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
-# Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
-# Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
-# Highlight search results (https://github.com/helix-editor/helix/issues/1733).
-# Sessions (https://github.com/helix-editor/helix/issues/401).
-# Save files for crash (https://github.com/helix-editor/helix/issues/290).
-# Line wrapping (https://github.com/helix-editor/helix/issues/136).
-# Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
+# *** Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
+# *** Sessions (https://github.com/helix-editor/helix/issues/401).
+# ** Jump to next empty line (https://github.com/helix-editor/helix/issues/753 https://github.com/helix-editor/helix/issues/1580).
+# ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
+# ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
+# ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
+# ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
+# ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
+# ** Go to matching brackets when cursor is not on bracket (https://github.com/helix-editor/helix/issues/1072).
+# ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
+# ** File completions (https://github.com/helix-editor/helix/issues/1015).
+# ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
+# ** Tabline (https://github.com/helix-editor/helix/issues/475).
+# * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
+# * Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
+# * Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
+# * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
+# * Marks (https://github.com/helix-editor/helix/issues/703).
+# Indentation line (https://github.com/helix-editor/helix/issues/1257).
+# Customizable statusline (https://github.com/helix-editor/helix/issues/708).
+# File diff (https://github.com/helix-editor/helix/issues/405).
 #
 # Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
 # 
 # Possibly config:
-# Search word under the cursor (instead of words containing the word under the selection).
-# Global search of the word under the cursor.
-# Remove completed text (by pressing ctrl-p, ctrl-n in cause you don't want any of the completions).
-# Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
-# Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
+# *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
+# (or maybe even https://github.com/helix-editor/helix/issues/1383)
+# *** Global search of the word under the cursor (automate <Space>+/ <C-s>).
 #
+# Remove completed text (already possible with ctrl-c).
 # Case sensitive search (smart-case in next version).
 
 theme = "bogster"
@@ -31,6 +41,8 @@ mouse = false
 # smart-case = false
 
 [keys.normal]
+# "*" = ["search"]
+
 # Char/line movement
 c = "move_char_left"
 r = "move_char_right"

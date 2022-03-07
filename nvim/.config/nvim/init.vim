@@ -8,7 +8,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'benekastah/neomake'
 Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
@@ -20,7 +19,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
-Plug 'neomutt/neomutt.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
