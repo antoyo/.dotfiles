@@ -27,6 +27,7 @@
 # *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
 # (or maybe even https://github.com/helix-editor/helix/issues/1383)
 # *** Global search of the word under the cursor (automate <Space>+/ <C-s>).
+# Shortcut to redraw the whole UI.
 #
 # Remove completed text (already possible with ctrl-c).
 # Case sensitive search (smart-case in next version).
