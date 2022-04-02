@@ -1,7 +1,6 @@
 # To implement:
 # *** Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
 # *** Sessions (https://github.com/helix-editor/helix/issues/401).
-# ** Jump to next empty line (https://github.com/helix-editor/helix/issues/753 https://github.com/helix-editor/helix/issues/1580).
 # ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 # ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
 # ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
@@ -13,15 +12,12 @@
 # ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
 # ** Tabline (https://github.com/helix-editor/helix/issues/475).
 # * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
-# * Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
 # * Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
 # * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
 # * Marks (https://github.com/helix-editor/helix/issues/703).
 # Indentation line (https://github.com/helix-editor/helix/issues/1257).
 # Customizable statusline (https://github.com/helix-editor/helix/issues/708).
 # File diff (https://github.com/helix-editor/helix/issues/405).
-#
-# Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
 # 
 # Possibly config:
 # *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
@@ -29,8 +25,12 @@
 # *** Global search of the word under the cursor (automate <Space>+/ <C-s>).
 # Shortcut to redraw the whole UI.
 #
+# Already implemented:
 # Remove completed text (already possible with ctrl-c).
 # Case sensitive search (smart-case in next version).
+# Jump to next empty line (https://github.com/helix-editor/helix/issues/753 https://github.com/helix-editor/helix/issues/1580).
+# Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
+# Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
 
 theme = "bogster"
 
