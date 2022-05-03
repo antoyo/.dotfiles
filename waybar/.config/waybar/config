@@ -117,7 +117,6 @@
     "custom/notification": {
         "format": "{icon} {}",
         "return-type": "string",
-        "max-length": 10,
         "interval": 10,
         "format-icons": {
             "default": "🔔"
