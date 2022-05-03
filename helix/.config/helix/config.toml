@@ -6,7 +6,6 @@
 # ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
 # ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
 # ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
-# ** Go to matching brackets when cursor is not on bracket (https://github.com/helix-editor/helix/issues/1072).
 # ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
 # ** File completions (https://github.com/helix-editor/helix/issues/1015).
 # ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
@@ -31,6 +30,7 @@
 # Jump to next empty line (https://github.com/helix-editor/helix/issues/753 https://github.com/helix-editor/helix/issues/1580).
 # Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
 # Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
+# Go to matching brackets when cursor is not on bracket (https://github.com/helix-editor/helix/issues/1072).
 
 theme = "bogster"
 
