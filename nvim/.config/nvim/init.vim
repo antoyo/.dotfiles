@@ -265,3 +265,20 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=8
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
+
+" Fix clipboard pasting ^M (\r) characters on Wayland
+" https://github.com/neovim/neovim/issues/10223#issuecomment-521952122
+if exists('$WAYLAND_DISPLAY')
+  let g:clipboard = {
+  \   'name': 'wl-clipboard with ^M trim',
+  \   'copy': {
+  \     '+': 'wl-copy --foreground --type text/plain',
+  \     '*': 'wl-copy --foreground --type text/plain --primary',
+  \    },
+  \   'paste': {
+  \     '+': {-> systemlist('wl-paste --no-newline | sed -e "s/\r\$//"', '', 1)},
+  \     '*': {-> systemlist('wl-paste --no-newline --primary | sed -e "s/\r\$//"', '', 1)},
+  \   },
+  \   'cache_enabled': 1,
+  \ }
+endif
