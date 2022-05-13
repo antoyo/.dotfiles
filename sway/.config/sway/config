@@ -221,7 +221,6 @@ output "*" bg ~/.config/sway/images/wallpaper.png fill
 exec nheko
 # Use x11 backend for evolution to avoid a crash on reply.
 exec env GDK_BACKEND=x11 evolution
-exec pidgin # TODO: move on right screen.
-# TODO: alarm when battery is low.
+exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
 # TODO: install clipman?
 # TODO: Fix notification icon in waybar (it doesn't always show; seems like when there's a window focused, it doesn't show up).
