@@ -18,7 +18,8 @@ search-engine ia http://web.archive.org/web/*/{}
 search-engine rd https://docs.rs/releases/search?query={}
 search-engine mdn https://developer.mozilla.org/en-US/search?q={}
 search-engine gh https://github.com/search?utf8=%E2%9C%93&q={}
-search-engine gt https://gtk-rs.org/gtk3-rs/stable/0.14/docs/?search={}
+search-engine gc https://gtk-rs.org/gtk-rs-core/stable/latest/docs/?search={}
+search-engine gt https://gtk-rs.org/gtk3-rs/stable/latest/docs/?search={}
 search-engine cp https://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search={}&button=
 
 set hint-chars = auietsrncbpodljyxkqghf
