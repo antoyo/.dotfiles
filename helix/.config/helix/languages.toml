@@ -1,3 +1,11 @@
 [[language]]
 name = "rust"
 auto-format = false
+
+[[language]]
+name = "c"
+indent = { tab-width = 8, unit = "\t" }
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 8, unit = "\t" }

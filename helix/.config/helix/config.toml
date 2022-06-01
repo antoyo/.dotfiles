@@ -17,6 +17,8 @@
 # Indentation line (https://github.com/helix-editor/helix/issues/1257).
 # Customizable statusline (https://github.com/helix-editor/helix/issues/708).
 # File diff (https://github.com/helix-editor/helix/issues/405).
+# Global search history (https://github.com/helix-editor/helix/issues/2579).
+# Retab (https://github.com/helix-editor/helix/issues/2576).
 # 
 # Possibly config:
 # *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
@@ -38,12 +40,32 @@ theme = "bogster"
 line-number = "relative"
 mouse = false
 
-# [editor.search]
-# smart-case = false
+[editor.search]
+smart-case = false
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
 
 [keys.normal]
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
 # "*" = ["search"]
 
+[keys.normal.space]
+w = ":write"
+q = ":write-quit-all!"
+
+[keys.normal.z]
+p = "scroll_up"
+n = "scroll_down"
+
+down = "no_op"
+k = "no_op"
+j = "no_op"
+up = "no_op"
+
+# Bépo remapping.
 # Char/line movement
 c = "move_char_left"
 r = "move_char_right"
@@ -65,19 +87,6 @@ j = "find_till_char"
 
 # Substitute
 k = "select_regex"
-
-[keys.normal.space]
-w = ":write"
-q = ":write-quit-all!"
-
-[keys.normal.z]
-p = "scroll_up"
-n = "scroll_down"
-
-down = "no_op"
-k = "no_op"
-j = "no_op"
-up = "no_op"
 
 [keys.select]
 # Char/line movement
