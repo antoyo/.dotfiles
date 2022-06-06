@@ -37,6 +37,7 @@
 theme = "bogster"
 
 [editor]
+auto-format = false
 line-number = "relative"
 mouse = false
 
@@ -46,11 +47,6 @@ smart-case = false
 [editor.whitespace.render]
 tab = "all"
 nbsp = "all"
-
-[keys.normal]
-"}" = "goto_next_paragraph"
-"{" = "goto_prev_paragraph"
-# "*" = ["search"]
 
 [keys.normal.space]
 w = ":write"
@@ -64,6 +60,11 @@ down = "no_op"
 k = "no_op"
 j = "no_op"
 up = "no_op"
+
+[keys.normal]
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+# "*" = ["search"]
 
 # Bépo remapping.
 # Char/line movement

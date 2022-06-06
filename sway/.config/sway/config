@@ -22,7 +22,7 @@ bindsym $mod+Shift+b kill
 bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill # TODO: switch to a wayland equivalent.
 
 # start wofi (a program launcher)
-bindsym $mod+i exec rofi -show run
+bindsym $mod+i exec rofi -show combi -combi-modi "drun,run" -show-icons -combi-hide-mode-prefix
 
 # change focus
 bindsym $mod+t focus left
@@ -223,5 +223,6 @@ exec nheko
 exec env GDK_BACKEND=x11 evolution
 exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
 exec pidgin # TODO: move on right screen.
+# Sleep before running nextcloud to make sure the tray icon shows up.
 exec sleep 5 && nextcloud
-# TODO: install clipman?
+exec wl-paste -t text --watch clipman store --no-persist
