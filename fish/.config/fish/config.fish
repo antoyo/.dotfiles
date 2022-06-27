@@ -29,7 +29,7 @@ end
 
 function z
     if count $argv > /dev/null
-        __zoxide_z "$argv"; and ls
+        __zoxide_z $argv; and ls
     else
         __zoxide_z; and ls
     end
