@@ -24,4 +24,6 @@ search-engine cp https://en.cppreference.com/mwiki/index.php?title=Special%3ASea
 
 set hint-chars = auietsrncbpodljyxkqghf
 
+preferred-language fr-CA
+
 set cookie-accept = no-third-party

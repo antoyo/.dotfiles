@@ -117,7 +117,7 @@ augroup filegroup
     autocmd FileType python setlocal autoindent
     autocmd FileType asciidoc set nospell
     autocmd VimLeave * CurrentSessionSave
-    autocmd FileType asciidoc setlocal shiftwidth=4
+    autocmd FileType asciidoc setlocal shiftwidth=4 | setlocal textwidth=0
     autocmd BufRead *.tig set filetype=javascript
 augroup END
 

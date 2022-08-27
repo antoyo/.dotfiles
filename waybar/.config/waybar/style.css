@@ -194,11 +194,11 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#disk.warning {
+#memory.warning, #disk.warning {
     background-color: orange;
 }
 
-#disk.critical {
+#memory.critical, #disk.critical {
     background-color: red;
 }
 
