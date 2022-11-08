@@ -34,15 +34,23 @@
 # Global search history (https://github.com/helix-editor/helix/issues/2579).
 # Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
 
-theme = "bogster"
+# TODO: switch back to bogster on the next update since they added the colors for the statusline.
+theme = "bogster-statusline"
 
 [editor]
 auto-format = false
+color-modes = true
+cursorline = true
+indent-guides = { render = true }
 line-number = "relative"
 mouse = false
 
 [editor.search]
 smart-case = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-type", "file-line-ending"]
+right = ["diagnostics", "selections", "position", "position-percentage", "file-encoding"]
 
 [editor.whitespace.render]
 tab = "all"
@@ -65,6 +73,7 @@ up = "no_op"
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
 # "*" = ["search"]
+"*" = ["shrink_selection", "search_selection", "search_next"]
 
 # Bépo remapping.
 # Char/line movement

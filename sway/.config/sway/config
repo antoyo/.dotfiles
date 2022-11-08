@@ -43,10 +43,14 @@ bindsym $mod+Shift+r move up
 bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# Move workspace to the other monitor.
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
 
 # split in horizontal orientation
 #bindsym $mod+c split h
@@ -226,6 +230,4 @@ exec nheko
 exec env GDK_BACKEND=x11 evolution
 exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
 exec pidgin # TODO: move on right screen.
-# Sleep before running nextcloud to make sure the tray icon shows up.
-exec sleep 5 && nextcloud
 exec wl-paste -t text --watch clipman store --no-persist
