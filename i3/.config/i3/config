@@ -164,6 +164,12 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 
+# Screenshots.
+# Take a screenshot with all output and save it into screenshots.
+bindsym --release $mod+Print exec scrot $HOME/Images/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+# Take a Screenshot with the region select.
+bindsym --release Print exec scrot -s $HOME/Images/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
 # Declare here the shortcut to bring the display selection menu
 bindsym $mod+x mode "$mode_display"
 
