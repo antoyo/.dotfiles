@@ -9,7 +9,6 @@
 # ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
 # ** File completions (https://github.com/helix-editor/helix/issues/1015 https://github.com/helix-editor/helix/issues/2874).
 # ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
-# ** Tabline (https://github.com/helix-editor/helix/issues/475).
 # * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
 # * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
 # * Marks (https://github.com/helix-editor/helix/issues/703).
@@ -33,12 +32,13 @@
 # Indentation line (https://github.com/helix-editor/helix/issues/1257).
 # Global search history (https://github.com/helix-editor/helix/issues/2579).
 # Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
+# Tabline (https://github.com/helix-editor/helix/issues/475).
 
-# TODO: switch back to bogster on the next update since they added the colors for the statusline.
-theme = "bogster-statusline"
+theme = "my-bogster"
 
 [editor]
 auto-format = false
+bufferline = "always"
 color-modes = true
 cursorline = true
 indent-guides = { render = true }
@@ -49,8 +49,11 @@ mouse = false
 smart-case = false
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "file-type", "file-line-ending"]
-right = ["diagnostics", "selections", "position", "position-percentage", "file-encoding"]
+left = ["mode", "spinner", "spacer", "diagnostics", "file-name", "file-type", "file-line-ending"]
+right = ["diagnostics", "selections", "position", "total-line-numbers", "separator", "spacer", "position-percentage", "file-encoding"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.whitespace.render]
 tab = "all"

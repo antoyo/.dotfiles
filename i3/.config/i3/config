@@ -55,10 +55,14 @@ bindsym $mod+Shift+r move up
 bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# Move workspace to the other monitor.
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
 
 # split in horizontal orientation
 #bindsym $mod+c split h
@@ -223,7 +227,6 @@ bindsym $mod+Next exec pulsemixer --change-volume -5
 bindsym $mod+End exec pulsemixer --toggle-mute
 
 # Autostart applications.
-exec --no-startup-id i3-workscreen
 exec xsetroot -cursor_name left_ptr
 #exec unclutter -root
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
@@ -231,12 +234,11 @@ exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
 #exec anamnesis --start
-#exec xrandr --output DVI-D-1 --auto --output HDMI-1 --auto --left-of DVI-D-1 --primary
+exec xrandr --output DVI-D-1 --auto --output HDMI-1 --auto --left-of DVI-D-1 --primary
 exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
 exec evolution --force-online
 exec pidgin
 exec nheko
-exec liferea --mainwindow-state=hidden
-exec nextcloud
+exec i3-aww
 exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga

@@ -6,3 +6,4 @@ define all_bt
     thread apply all bt
 end
 add-auto-load-safe-path /home/bouanto/Ordinateur/Programmation/Projets/linux-cg-gcc
+set substitute-path /usr/src/debug/gcc /home/bouanto/Ordinateur/Programmation/Projets/gcc-repo/gcc

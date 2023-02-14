@@ -231,3 +231,4 @@ exec env GDK_BACKEND=x11 evolution
 exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
 exec pidgin # TODO: move on right screen.
 exec wl-paste -t text --watch clipman store --no-persist
+exec lxqt-policykit-agent

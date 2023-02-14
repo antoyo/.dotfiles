@@ -3,6 +3,7 @@
   "positionX": "right",
   // Y-axis position
   "positionY": "top",
+  "layer": "bottom",
   // Timeout for normal priority notifications
   "timeout": 5,
   // Timeout for low priority notifications
