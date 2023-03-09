@@ -11,6 +11,7 @@ search-engine wte http://en.wiktionary.org/w/index.php?search={}
 search-engine wp https://fr.wikipedia.org/w/index.php?search={}
 search-engine wpe http://en.wikipedia.org/w/index.php?search={}
 search-engine aw https://wiki.archlinux.org/index.php?search={}
+search-engine ax https://wiki.artixlinux.org/?q={}&n=Main.HomePage&action=search
 search-engine ar https://aur.archlinux.org/packages/?O=0&K={}
 search-engine cr https://lib.rs/search?q={}
 search-engine rs https://doc.rust-lang.org/stable/std/?search={}

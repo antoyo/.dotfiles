@@ -1,7 +1,7 @@
 zoxide init fish | source
 
 if set -q SSH_CLIENT; or set -q SSH_TTY
-    source /usr/share/fish/tools/web_config/sample_prompts/classic_status.fish
+    source /usr/share/fish/tools/web_config/sample_prompts/default.fish
 else
     source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
 end
@@ -83,7 +83,7 @@ alias swayconfig "nvim ~/.config/sway/config"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
 alias urlsnews "nvim ~/.config/newsboat/urls"
 alias you "youtube-dl --no-playlist"
-alias mp3you "youtube-dl --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias mp3you "yt-dlp --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"

@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: DejaVu Sans 11
+font pango: DejaVu Sans 12
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -176,11 +176,11 @@ bindsym $mod+x mode "$mode_display"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango: DejaVu Sans 11
+    font pango: DejaVu Sans 12
     position top
     status_command i3status-rs
     tray_output primary
-    tray_output DVI-D-1
+    tray_output DVI-D-0
 }
 
 set $Locker i3lock -i ~/.config/i3/images/screenlocker.png -t & sleep 5 && xset dpms force off
@@ -190,10 +190,10 @@ set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym Shift+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym Shift+s exec --no-startup-id $Locker && loginctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && loginctl hibernate, mode "default"
+    bindsym r exec --no-startup-id loginctl reboot, mode "default"
+    bindsym s exec --no-startup-id loginctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -220,6 +220,7 @@ workspace_auto_back_and_forth yes
 # Application shortcuts.
 bindsym $mod+b exec liferea
 bindsym $mod+c exec nheko
+bindsym $mod+Shift+eacute exec evolution
 bindsym $mod+m exec mounter
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec titanium
@@ -232,19 +233,21 @@ bindsym $mod+Prior exec pulsemixer --change-volume +5
 bindsym $mod+Next exec pulsemixer --change-volume -5
 bindsym $mod+End exec pulsemixer --toggle-mute
 
+# Disable screen power saving.
+exec xset s off; xset -dpms
+
 # Autostart applications.
-exec xsetroot -cursor_name left_ptr
+exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
 #exec unclutter -root
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
 #exec anamnesis --start
-exec xrandr --output DVI-D-1 --auto --output HDMI-1 --auto --left-of DVI-D-1 --primary
+exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
 exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
 exec evolution --force-online
 exec pidgin
 exec nheko
 exec i3-aww
-exec i3-battery-popup -L 30 -n -s /usr/share/sounds/freedesktop/stereo/suspend-error.oga
