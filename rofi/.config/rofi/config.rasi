@@ -35,7 +35,7 @@ configuration {
 /*	combi-modi: "window,run";*/
 /*	matching: "normal";*/
 /*	tokenize: true;*/
-/*	m: "-5";*/
+        m: "-1";
 /*	filter: ;*/
 /*	dpi: -1;*/
 /*	threads: 0;*/

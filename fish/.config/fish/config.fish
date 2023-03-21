@@ -54,6 +54,7 @@ abbr cn "cargo new"
 abbr cr "cargo run"
 abbr cre "cargo run --example"
 abbr ct "cargo test"
+abbr rustperf "perf record -F99 --call-graph dwarf"
 
 # Aliases.
 alias astow "sudo stow --target=/"
