@@ -183,7 +183,7 @@ bar {
     tray_output DVI-D-0
 }
 
-set $Locker i3lock -i ~/.config/i3/images/screenlocker.png -t & sleep 5 && xset dpms force off
+set $Locker i3lock -i ~/.config/i3/images/screenlocker.png -t
 
 # Power management.
 set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, (r) reboot, (s) shutdown

@@ -34,7 +34,9 @@
 # Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
 # Tabline (https://github.com/helix-editor/helix/issues/475).
 
-theme = "my-bogster"
+# TODO: enable lsp.display-inline-hints when there are good colors in my theme.
+
+theme = "bogster"
 
 [editor]
 auto-format = false
@@ -48,8 +50,11 @@ mouse = false
 [editor.search]
 smart-case = false
 
+[editor.soft-wrap]
+enable = true
+
 [editor.statusline]
-left = ["mode", "spinner", "spacer", "diagnostics", "file-name", "file-type", "file-line-ending"]
+left = ["mode", "spinner", "spacer", "diagnostics", "version-control", "file-name", "file-type", "file-line-ending"]
 right = ["diagnostics", "selections", "position", "total-line-numbers", "separator", "spacer", "position-percentage", "file-encoding"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
