@@ -84,6 +84,7 @@ up = "no_op"
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
 # "*" = ["search"]
+# TODO: wrap the search pattern between \b to search for exactly the same word.
 "*" = ["shrink_selection", "search_selection", "search_next"]
 "L" = ["collapse_selection", "select_mode", "goto_line_end", "change_selection"]
 
