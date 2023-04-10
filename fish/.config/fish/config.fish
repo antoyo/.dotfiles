@@ -42,10 +42,6 @@ function tradfr
     trans -brief :fr "$argv"
 end
 
-function tpb
-    torrench -t "$argv"
-end
-
 # Abbreviations.
 abbr cb "cargo build"
 abbr cbr "cargo build --release"
@@ -80,9 +76,7 @@ alias nvimconfig "cd ~/.config/nvim; nvim init.vim"
 alias perf-annotate "perf annotate -M intel"
 alias rm "rm -i"
 alias stow "stow --no-folding"
-alias swayconfig "nvim ~/.config/sway/config"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
-alias urlsnews "nvim ~/.config/newsboat/urls"
 alias you "youtube-dl --no-playlist"
 alias mp3you "yt-dlp --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 

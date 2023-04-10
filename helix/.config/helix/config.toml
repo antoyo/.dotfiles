@@ -4,7 +4,6 @@
 # ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 # ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
 # ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
-# ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
 # ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
 # ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
 # ** File completions (https://github.com/helix-editor/helix/issues/1015 https://github.com/helix-editor/helix/issues/2874).
@@ -12,9 +11,11 @@
 # * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
 # * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
 # * Marks (https://github.com/helix-editor/helix/issues/703).
-# Customizable statusline (https://github.com/helix-editor/helix/issues/708).
 # File diff (https://github.com/helix-editor/helix/issues/405).
 # Retab (https://github.com/helix-editor/helix/issues/2576).
+#
+# To watch:
+# Allow setting indent globally (https://github.com/helix-editor/helix/issues/3159)
 # 
 # Possibly config:
 # *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
@@ -33,6 +34,8 @@
 # Global search history (https://github.com/helix-editor/helix/issues/2579).
 # Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
 # Tabline (https://github.com/helix-editor/helix/issues/475).
+# Customizable statusline (https://github.com/helix-editor/helix/issues/708).
+# ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
 
 # TODO: enable lsp.display-inline-hints when there are good colors in my theme.
 
@@ -82,13 +85,14 @@ up = "no_op"
 "{" = "goto_prev_paragraph"
 # "*" = ["search"]
 "*" = ["shrink_selection", "search_selection", "search_next"]
+"L" = ["collapse_selection", "select_mode", "goto_line_end", "change_selection"]
 
 # Bépo remapping.
 # Char/line movement
 c = "move_char_left"
 r = "move_char_right"
-t = "move_line_down"
-s = "move_line_up"
+t = "move_visual_line_down"
+s = "move_visual_line_up"
 
 # Word movement
 "é" = "move_next_word_start"
