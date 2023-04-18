@@ -50,6 +50,10 @@ indent-guides = { render = true }
 line-number = "relative"
 mouse = false
 
+[editor.file-picker]
+hidden = false
+git-ignore = false
+
 [editor.search]
 smart-case = false
 
@@ -87,6 +91,8 @@ up = "no_op"
 # TODO: wrap the search pattern between \b to search for exactly the same word.
 "*" = ["shrink_selection", "search_selection", "search_next"]
 "L" = ["collapse_selection", "select_mode", "goto_line_end", "change_selection"]
+# To push to the jump-list before selecting all the buffer. Useful to be able to use C-o when pressed by accident.
+"%" = ["save_selection", "select_all"]
 
 # Bépo remapping.
 # Char/line movement

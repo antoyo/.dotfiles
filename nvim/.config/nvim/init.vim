@@ -35,7 +35,6 @@ set confirm
 set hidden " Avoid unloading a buffer when editing another file.
 set sessionoptions=buffers,curdir " Only save the buffers and the current directory in the session.
 set spelllang=fr
-set tags=./.tags
 set matchpairs+=<:> " Enable % to jump from < to >.
 set notimeout " Disable the timeout.
 set nottimeout
@@ -215,12 +214,6 @@ command! GpushNew :Gpush origin -u HEAD
 " Licenses
 let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 
-" Neomake
-let g:neomake_logfile = '/tmp/neomake.log'
-let g:neomake_open_list = 2
-let g:neomake_asciidoc_enabled_makers = []
-"call neomake#configure#automake('w')
-
 " Airline
 set laststatus=2
 let g:airline_theme="powerlineish"
@@ -264,20 +257,3 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=8
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
-
-" Fix clipboard pasting ^M (\r) characters on Wayland
-" https://github.com/neovim/neovim/issues/10223#issuecomment-521952122
-if exists('$WAYLAND_DISPLAY')
-  let g:clipboard = {
-  \   'name': 'wl-clipboard with ^M trim',
-  \   'copy': {
-  \     '+': 'wl-copy --foreground --type text/plain',
-  \     '*': 'wl-copy --foreground --type text/plain --primary',
-  \    },
-  \   'paste': {
-  \     '+': {-> systemlist('wl-paste --no-newline | sed -e "s/\r\$//"', '', 1)},
-  \     '*': {-> systemlist('wl-paste --no-newline --primary | sed -e "s/\r\$//"', '', 1)},
-  \   },
-  \   'cache_enabled': 1,
-  \ }
-endif
