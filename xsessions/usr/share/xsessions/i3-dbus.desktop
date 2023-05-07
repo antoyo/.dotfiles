@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=i3-dbus
+Comment=improved dynamic tiling window manager
+Exec=dbus-launch --exit-with-x11 i3
+TryExec=i3
+Type=Application
+X-LightDM-DesktopName=i3
+DesktopNames=i3
+Keywords=tiling;wm;windowmanager;window;manager;
