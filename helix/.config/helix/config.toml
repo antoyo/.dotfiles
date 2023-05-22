@@ -52,7 +52,6 @@ mouse = false
 
 [editor.file-picker]
 hidden = false
-git-ignore = false
 
 [editor.search]
 smart-case = false
