@@ -1,13 +1,14 @@
 " Plugins.
 call plug#begin()
 
+" Interesting plugins:
+" https://github.com/folke/trouble.nvim
+" https://github.com/j-hui/fidget.nvim
+" https://github.com/weilbith/nvim-code-action-menu
+
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
 Plug 'antoyo/vim-sessions'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
@@ -18,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
+Plug 'neovim/nvim-lspconfig'
 Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -186,21 +188,21 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>A O<Esc>
 nnoremap <expr> <Leader>a &modifiable?"o<Esc>":"<CR>"
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>d :call LanguageClient_textDocument_definition()<CR>
+nnoremap <Leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>e :set spelllang=en<CR>:set spell<CR>
-nnoremap <Leader>f :call LanguageClient_textDocument_codeAction()<CR>
+nnoremap <Leader>f <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <Leader>g :Rg 
 nnoremap <Leader>h :hide<CR>
-nnoremap <Leader>H :call LanguageClient_textDocument_hover()<CR>
+nnoremap <Leader>H <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>l "*p
 nnoremap <Leader>L "*P
-nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementations()<CR>
 nnoremap <Leader>n :only<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 nnoremap <Leader>* :Rgw <C-R><C-W><CR>
-nnoremap <Leader>r :GrepW <C-R><C-W><CR>
+nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>q :update<CR>:q<CR>
 nnoremap <Leader>s /\<\><Left><Left>
 nnoremap <Leader>u :GundoToggle<CR>
@@ -219,19 +221,6 @@ set laststatus=2
 let g:airline_theme="powerlineish"
 "let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pylsp'],
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ }
-let g:LanguageClient_useVirtualText = "No"
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_loggingLEvel = 'DEBUG'
-let g:LanguageClient_loggingFile = expand('~/.local/share/nvim/LanguageClient.log')
-let g:LanguageClient_settingsPath = expand('~/.config/nvim/lsp.json')
 
 " GUndo
 let g:gundo_map_move_older = "t"
@@ -257,3 +246,29 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=8
 autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
+
+" Lsp
+
+lua << EOF
+local ncm2 = require('ncm2')
+require'lspconfig'.rust_analyzer.setup{on_init = ncm2.register_lsp_source}
+require'lspconfig'.clangd.setup{on_init = ncm2.register_lsp_source}
+require'lspconfig'.pylsp.setup{
+    on_init = ncm2.register_lsp_source,
+    settings = {
+        ['pylsp'] = {
+            ['plugins'] = {
+                ['flake8'] = {
+                    ['enabled'] = true
+                },
+                ['pycodestyle'] = {
+                    ['enabled'] = false
+                },
+                ['pyflakes'] = {
+                    ['enabled'] = false
+                }
+            },
+        },
+    },
+}
+EOF
