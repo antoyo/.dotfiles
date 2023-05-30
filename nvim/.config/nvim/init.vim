@@ -2,9 +2,10 @@
 call plug#begin()
 
 " Interesting plugins:
-" https://github.com/folke/trouble.nvim
 " https://github.com/j-hui/fidget.nvim
 " https://github.com/weilbith/nvim-code-action-menu
+"
+" TODO: remove ~/.config/nvim/lsp.json
 
 Plug 'antoyo/vim-bepo'
 Plug 'antoyo/vim-licenses'
@@ -13,6 +14,8 @@ Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
+" To have FZF for LSP features.
+Plug 'gfanto/fzf-lsp.nvim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -20,6 +23,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -196,7 +200,7 @@ nnoremap <Leader>h :hide<CR>
 nnoremap <Leader>H <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>l "*p
 nnoremap <Leader>L "*P
-nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementations()<CR>
+nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <Leader>n :only<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
@@ -211,6 +215,9 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>w :w<CR>
 
 command! GpushNew :Gpush origin -u HEAD
+
+" To disambiguate with OutgoingCalls.
+cnoreabbrev O OpenSession
 
 " Plugin configuration.
 " Licenses
@@ -249,9 +256,20 @@ autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
 
 " Lsp
 
+" TODO: put in an exetrnal file.
+
 lua << EOF
 local ncm2 = require('ncm2')
-require'lspconfig'.rust_analyzer.setup{on_init = ncm2.register_lsp_source}
+require'lspconfig'.rust_analyzer.setup{
+    on_init = ncm2.register_lsp_source,
+    settings = {
+        ["rust-analyzer"] = {
+            ["cargo"] = {
+                ["features"] = "all",
+            },
+        },
+    }
+}
 require'lspconfig'.clangd.setup{on_init = ncm2.register_lsp_source}
 require'lspconfig'.pylsp.setup{
     on_init = ncm2.register_lsp_source,
@@ -271,4 +289,20 @@ require'lspconfig'.pylsp.setup{
         },
     },
 }
+
+local signs = {
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
+}
+
+-- To have pretty diagnostic icons.
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    -- TODO: could this be in vimscript?
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+require'fzf_lsp'.setup()
 EOF
