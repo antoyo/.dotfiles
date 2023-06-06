@@ -35,6 +35,7 @@ bindsym $mod+Shift+k exec xdotool getwindowfocus windowkill
 
 # start rofi (a program launcher)
 bindsym $mod+i exec --no-startup-id rofi -show run
+bindsym $mod+w exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+t focus left
@@ -220,7 +221,7 @@ workspace_auto_back_and_forth yes
 # Application shortcuts.
 bindsym $mod+b exec liferea
 bindsym $mod+c exec nheko
-bindsym $mod+Shift+eacute exec evolution
+bindsym $mod+Shift+m exec evolution
 bindsym $mod+m exec mounter
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec titanium

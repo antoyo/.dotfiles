@@ -10,6 +10,13 @@ function bsixdec
     echo "$argv[1]" | base64 -d
 end
 
+function fish_remove_path
+    # Move to the first position.
+    fish_add_path -m "$argv[1]"
+    # Remove the first element.
+    set -e fish_user_paths[1]
+end
+
 function z
     if count $argv > /dev/null
         __zoxide_z $argv; and ls
