@@ -95,3 +95,6 @@ end
 set -x BROWSER titanium
 set -x EDITOR nvim
 set -x TITANIUM_EXTENSION_INSTALL_PATH /usr/local/lib/titanium/web-extensions
+
+# Key bindings.
+bind \b backward-kill-bigword

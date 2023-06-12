@@ -219,6 +219,17 @@ command! GpushNew :Gpush origin -u HEAD
 " To disambiguate with OutgoingCalls.
 cnoreabbrev O OpenSession
 
+command! CB call CloseBuffersForNonexistentFiles()
+
+" Close all buffers pointing to files that don't exist.
+function! CloseBuffersForNonexistentFiles()
+    for buf in nvim_list_bufs()
+        if !filereadable(expand('#' . buf))
+            call nvim_buf_delete(buf, {})
+        endif
+    endfor
+endfunction
+
 " Plugin configuration.
 " Licenses
 let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
