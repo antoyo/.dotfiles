@@ -208,7 +208,11 @@ bindsym Control+$mod+l exec --no-startup-id $Locker
 for_window [title="Inspecteur Web"] floating disable
 for_window [title="Peshk"] floating disable
 for_window [title="Citra \| Tri Force Heroes"] floating enable, move position -2 px -22 px, resize set width 3204 px height 1104 px
-for_window [title="Android Emulator"] floating enable
+for_window [title="Android Emulator - Pixel"] floating enable
+
+# Disable auto-focus for Discord.
+no_focus [title="Discord"]
+focus_on_window_activation none
 
 # Mouse.
 focus_follows_mouse no

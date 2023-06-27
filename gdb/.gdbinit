@@ -10,3 +10,6 @@ set substitute-path /usr/src/debug/gcc /home/bouanto/Ordinateur/Programmation/Pr
 define no_signal_break
     handle all nostop pass
 end
+define follow_fork
+    set follow-fork-mode child
+end
