@@ -211,8 +211,9 @@ for_window [title="Citra \| Tri Force Heroes"] floating enable, move position -2
 for_window [title="Android Emulator - Pixel"] floating enable
 
 # Disable auto-focus for Discord.
-no_focus [title="Discord"]
-focus_on_window_activation none
+no_focus [class="discord"]
+# FIXME: the following works for Discord, but also prevent other apps from focusing like Evolution.
+#focus_on_window_activation none
 
 # Mouse.
 focus_follows_mouse no

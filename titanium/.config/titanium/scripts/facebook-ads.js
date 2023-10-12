@@ -4,7 +4,7 @@ function removeAds() {
         let lines = post.innerText.split("\n");
         for(let i = 0 ; i < 10 ; i++) {
             let line = lines[i];
-            if(line && (line.startsWith("Commandité") || line.startsWith("Suggestion pour vous") || line.startsWith("Reels"))) {
+            if(line && (line.startsWith("Commandité") || line.startsWith("Suggestion") || line.startsWith("Reels") || line.startsWith("Stories"))) {
                 // We just hide it instead of not displaying it because the latter will make Facebook scroll back up.
                 post.style.visibility = "hidden";
             }

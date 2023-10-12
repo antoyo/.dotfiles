@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+~/Ordinateur/Programmation/Rust/Projets/rustc_codegen_gcc/y.sh $@

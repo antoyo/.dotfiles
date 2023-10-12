@@ -13,3 +13,8 @@ end
 define follow_fork
     set follow-fork-mode child
 end
+define qemu_debug
+    target remote :1234
+end
+
+source ~/.config/gdb/dashboard

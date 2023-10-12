@@ -1,1 +1,2 @@
 @@||gopass.pw
+@@||zulip-avatars.s3.amazonaws.com

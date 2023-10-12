@@ -40,6 +40,10 @@ interval = 1
 block = "sound"
 
 [[block]]
+block = "battery"
+format = " $icon $percentage "
+
+[[block]]
 block = "time"
 interval = 60
 format = " $icon $timestamp.datetime(f:'%A %d %B %Y %R', l:fr_CA) "
