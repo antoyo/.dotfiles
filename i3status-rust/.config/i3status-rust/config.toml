@@ -42,6 +42,7 @@ block = "sound"
 [[block]]
 block = "battery"
 format = " $icon $percentage "
+missing_format = ""
 
 [[block]]
 block = "time"
