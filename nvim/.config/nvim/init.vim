@@ -123,6 +123,8 @@ augroup filegroup
     autocmd VimLeave * CurrentSessionSave
     autocmd FileType asciidoc setlocal shiftwidth=4 | setlocal textwidth=0
     autocmd BufRead *.tig set filetype=javascript
+    autocmd BufRead *.nx set filetype=ocaml
+    autocmd BufRead *.patch set nospell
 augroup END
 
 " Disable backup for gopass files.

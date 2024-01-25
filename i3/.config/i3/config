@@ -245,6 +245,7 @@ exec xset s off; xset -dpms
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
 #exec unclutter -root
+# TODO: Seems like the files that we want to merge with xrdb don't exist.
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
