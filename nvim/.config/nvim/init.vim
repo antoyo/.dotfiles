@@ -14,11 +14,13 @@ Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
+Plug 'folke/trouble.nvim'
 " To have FZF for LSP features.
 Plug 'gfanto/fzf-lsp.nvim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
@@ -58,6 +60,8 @@ let mapleader = "\<Space>"
 
 " UI configuration.
 set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 set cursorline " Highlight the active line.
 set diffopt+=vertical " Make diff split vertical by default.
 set inccommand=split " Incremental visual feedback for the substitute command.
@@ -123,7 +127,7 @@ augroup filegroup
     autocmd VimLeave * CurrentSessionSave
     autocmd FileType asciidoc setlocal shiftwidth=4 | setlocal textwidth=0
     autocmd BufRead *.tig set filetype=javascript
-    autocmd BufRead *.nx set filetype=ocaml
+    autocmd BufRead *.nx set filetype=rust
     autocmd BufRead *.patch set nospell
 augroup END
 
@@ -238,8 +242,7 @@ let g:licenses_copyright_holders_name = "Boucher, Antoni <bouanto@zoho.com>"
 
 " Airline
 set laststatus=2
-let g:airline_theme="powerlineish"
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " GUndo
@@ -280,6 +283,9 @@ require'lspconfig'.rust_analyzer.setup{
             ["cargo"] = {
                 ["features"] = "all",
             },
+            rustc = {
+                source = "discover",
+            },
         },
     }
 }
@@ -303,6 +309,18 @@ require'lspconfig'.pylsp.setup{
     },
 }
 
+require 'trouble'.setup {
+    icons = false,
+    mode = "document_diagnostics",
+    action_keys = {
+        next = "t",
+        previous = "s",
+        switch_severity = "v",
+    },
+    group = false,
+    padding = false,
+}
+
 local signs = {
     Error = "",
     Warn = "",
@@ -316,6 +334,13 @@ for type, icon in pairs(signs) do
     -- TODO: could this be in vimscript?
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- Disable inline diagnostics.
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+    }
+)
 
 require'fzf_lsp'.setup()
 EOF
