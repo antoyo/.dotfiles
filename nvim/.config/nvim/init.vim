@@ -30,6 +30,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
+Plug 'smjonas/inc-rename.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -308,6 +309,11 @@ require'lspconfig'.pylsp.setup{
         },
     },
 }
+
+require("inc_rename").setup({
+    cmd_name = "Rename",
+})
+vim.keymap.set("n", "<leader>j", ":IncRename ")
 
 require 'trouble'.setup {
     icons = false,
