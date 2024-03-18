@@ -14,6 +14,7 @@ Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
+" To show errors from the build done by the LSP.
 Plug 'folke/trouble.nvim'
 " To have FZF for LSP features.
 Plug 'gfanto/fzf-lsp.nvim'
@@ -22,10 +23,15 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
+" TODO: ncm2 is not developped anymore and is giving me errors, so switch to
+" something else.
+" TODO: switch to ale: https://github.com/dense-analysis/ale ?
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
+" To see the function signature when typing a function call.
+Plug 'ray-x/lsp_signature.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -205,6 +211,8 @@ nnoremap <Leader>f <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <Leader>g :Rg 
 nnoremap <Leader>h :hide<CR>
 nnoremap <Leader>H <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <Leader>jn <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <Leader>jp <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <Leader>l "*p
 nnoremap <Leader>L "*P
 nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementation()<CR>
@@ -213,13 +221,14 @@ nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 nnoremap <Leader>* :Rgw <C-R><C-W><CR>
-nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>q :update<CR>:q<CR>
+nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>s /\<\><Left><Left>
+nnoremap <Leader>t :Trouble<CR>
 nnoremap <Leader>u :GundoToggle<CR>
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
-nnoremap <Leader>w :w<CR>
 
 command! GpushNew :Gpush origin -u HEAD
 
@@ -268,12 +277,12 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermbg=8
-autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=8
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd ctermfg=234 ctermbg=237
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermfg=234 ctermbg=237
 
 " Lsp
 
-" TODO: put in an exetrnal file.
+" TODO: put in an external file.
 
 lua << EOF
 local ncm2 = require('ncm2')
@@ -314,6 +323,8 @@ require("inc_rename").setup({
     cmd_name = "Rename",
 })
 vim.keymap.set("n", "<leader>j", ":IncRename ")
+
+require "lsp_signature".setup()
 
 require 'trouble'.setup {
     icons = false,

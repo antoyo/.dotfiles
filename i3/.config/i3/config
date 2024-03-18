@@ -209,6 +209,8 @@ for_window [title="Inspecteur Web"] floating disable
 for_window [title="Peshk"] floating disable
 for_window [title="Citra \| Tri Force Heroes"] floating enable, move position -2 px -22 px, resize set width 3204 px height 1104 px
 for_window [title="Android Emulator - Pixel"] floating enable
+# Thunderbird Reminder window:
+for_window [title="rappel"] floating disable
 
 # Disable auto-focus for Discord.
 no_focus [class="discord"]
@@ -226,7 +228,7 @@ workspace_auto_back_and_forth yes
 # Application shortcuts.
 bindsym $mod+b exec liferea
 bindsym $mod+c exec nheko
-bindsym $mod+Shift+m exec evolution
+bindsym $mod+Shift+m exec thunderbird
 bindsym $mod+m exec mounter
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec titanium
@@ -254,7 +256,7 @@ exec setxkbmap my_bepo bepo # For rofi.
 exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
 exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
-exec evolution --force-online
+exec thunderbird
 exec pidgin
 exec nheko
 exec i3-aww
