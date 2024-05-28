@@ -1,0 +1,137 @@
+# To implement:
+# *** Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
+# *** Sessions (https://github.com/helix-editor/helix/issues/401).
+# ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
+# ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
+# ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
+# ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
+# ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
+# ** File completions (https://github.com/helix-editor/helix/issues/1015 https://github.com/helix-editor/helix/issues/2874).
+# ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
+# * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
+# * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
+# * Marks (https://github.com/helix-editor/helix/issues/703).
+# File diff (https://github.com/helix-editor/helix/issues/405).
+# Retab (https://github.com/helix-editor/helix/issues/2576).
+#
+# To watch:
+# Allow setting indent globally (https://github.com/helix-editor/helix/issues/3159)
+#
+# Possibly config:
+# *** Search word under the cursor (instead of words containing the word under the selection) (https://github.com/helix-editor/helix/issues/1762) (automate / <C-s>).
+# (or maybe even https://github.com/helix-editor/helix/issues/1383)
+# *** Global search of the word under the cursor (automate <Space>+/ <C-s>).
+# Shortcut to redraw the whole UI.
+#
+# Already implemented:
+# Remove completed text (already possible with ctrl-c).
+# Case sensitive search (smart-case in next version).
+# Jump to next empty line (https://github.com/helix-editor/helix/issues/753 https://github.com/helix-editor/helix/issues/1580).
+# Increment next number in line (https://github.com/helix-editor/helix/issues/1645).
+# Indenting (>) adds spaces on empty lines (https://github.com/helix-editor/helix/issues/1642).
+# Go to matching brackets when cursor is not on bracket (https://github.com/helix-editor/helix/issues/1072).
+# Indentation line (https://github.com/helix-editor/helix/issues/1257).
+# Global search history (https://github.com/helix-editor/helix/issues/2579).
+# Alert if cannot write file (https://github.com/helix-editor/helix/issues/1575).
+# Tabline (https://github.com/helix-editor/helix/issues/475).
+# Customizable statusline (https://github.com/helix-editor/helix/issues/708).
+# ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
+
+# TODO: enable lsp.display-inline-hints when there are good colors in my theme.
+
+theme = "bogster"
+
+[editor]
+auto-format = false
+bufferline = "always"
+color-modes = true
+cursorline = true
+indent-guides = { render = true }
+line-number = "relative"
+mouse = false
+
+[editor.file-picker]
+hidden = false
+
+[editor.search]
+smart-case = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "diagnostics", "version-control", "file-name", "file-type", "file-line-ending"]
+right = ["diagnostics", "selections", "position", "total-line-numbers", "separator", "spacer", "position-percentage", "file-encoding"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+
+[keys.normal.space]
+w = ":write"
+q = ":write-quit-all!"
+
+[keys.normal.z]
+p = "scroll_up"
+n = "scroll_down"
+
+down = "no_op"
+k = "no_op"
+j = "no_op"
+up = "no_op"
+
+[keys.normal]
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+# "*" = ["search"]
+# TODO: wrap the search pattern between \b to search for exactly the same word.
+"*" = ["shrink_selection", "search_selection", "search_next"]
+"L" = ["collapse_selection", "select_mode", "goto_line_end", "change_selection"]
+# To push to the jump-list before selecting all the buffer. Useful to be able to use C-o when pressed by accident.
+#"%" = ["save_selection", "select_all"]
+
+# Bépo remapping.
+# Char/line movement
+c = "move_char_left"
+r = "move_char_right"
+t = "move_visual_line_down"
+s = "move_visual_line_up"
+
+# Word movement
+"é" = "move_next_word_start" # TODO: do not select.
+"É" = "move_next_long_word_start" # TODO: do not select.
+
+# Change
+l = "change_selection"
+
+# Replace
+h = "replace"
+
+# Until
+j = "find_till_char"
+
+# Substitute
+k = "select_regex"
+
+[keys.select]
+# Char/line movement
+c = "extend_char_left"
+r = "extend_char_right"
+t = "extend_line_down"
+s = "extend_line_up"
+
+# Word movement
+"é" = "extend_next_word_start"
+"É" = "extend_next_long_word_start"
+
+# Change
+l = "change_selection"
+
+# Until
+j = "extend_till_char"
+
+# Substitute
+k = "select_regex"
