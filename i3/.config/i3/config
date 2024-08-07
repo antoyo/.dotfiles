@@ -217,6 +217,9 @@ no_focus [class="discord"]
 # FIXME: the following works for Discord, but also prevent other apps from focusing like Evolution.
 #focus_on_window_activation none
 
+# Assign windows to specific workspace.
+assign [title="Tip of the day"] 1
+
 # Mouse.
 focus_follows_mouse no
 mouse_warping none
@@ -260,3 +263,4 @@ exec thunderbird
 exec pidgin
 exec nheko
 exec i3-aww
+exec quotes

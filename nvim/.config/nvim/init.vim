@@ -5,6 +5,10 @@ call plug#begin()
 " https://github.com/j-hui/fidget.nvim
 " https://github.com/weilbith/nvim-code-action-menu
 "
+" https://github.com/vxpm/ferris.nvim
+" https://github.com/luckasRanarison/clear-action.nvim
+" https://github.com/Zeioth/garbage-day.nvim
+"
 " TODO: remove ~/.config/nvim/lsp.json
 
 Plug 'antoyo/vim-bepo'

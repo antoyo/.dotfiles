@@ -1,7 +1,6 @@
 # To implement:
 # *** Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
 # *** Sessions (https://github.com/helix-editor/helix/issues/401).
-# ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 # ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
 # ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
 # ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
@@ -22,6 +21,9 @@
 # (or maybe even https://github.com/helix-editor/helix/issues/1383)
 # *** Global search of the word under the cursor (automate <Space>+/ <C-s>).
 # Shortcut to redraw the whole UI.
+#
+# Possily to implement in evil-helix:
+# ** Indent/unindent in insert mode (https://github.com/helix-editor/helix/issues/334).
 #
 # Already implemented:
 # Remove completed text (already possible with ctrl-c).
@@ -101,11 +103,11 @@ t = "move_visual_line_down"
 s = "move_visual_line_up"
 
 # Word movement
-"é" = "move_next_word_start" # TODO: do not select.
+"é" = "evil_next_word_start"
 "É" = "move_next_long_word_start" # TODO: do not select.
 
 # Change
-l = "change_selection"
+l = "evil_change"
 
 # Replace
 h = "replace"
