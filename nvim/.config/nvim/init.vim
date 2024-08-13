@@ -22,16 +22,12 @@ Plug 'dahu/vim-asciidoc'
 Plug 'folke/trouble.nvim'
 " To have FZF for LSP features.
 Plug 'gfanto/fzf-lsp.nvim'
+Plug 'j-hui/fidget.nvim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
-" TODO: ncm2 is not developped anymore and is giving me errors, so switch to
-" something else.
-" TODO: switch to ale: https://github.com/dense-analysis/ale ?
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-path'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 " To see the function signature when typing a function call.
@@ -46,6 +42,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'
 
 call plug#end()
 
@@ -228,6 +230,7 @@ nnoremap <Leader>* :Rgw <C-R><C-W><CR>
 nnoremap <Leader>q :update<CR>:q<CR>
 nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>s /\<\><Left><Left>
+" FIXME: Trouble doesn't work anymore.
 nnoremap <Leader>t :Trouble<CR>
 nnoremap <Leader>u :GundoToggle<CR>
 nnoremap <Leader>w :w<CR>
@@ -267,7 +270,6 @@ let g:gundo_map_move_newer = "s"
 let vimple_init_vn = 0
 
 " Ncm
-autocmd BufEnter * call ncm2#enable_for_buffer() " Enable ncm2 for all buffers.
 set completeopt=noinsert,menuone,noselect
 " Enter newline instead of just closing the completion popup on enter.
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
@@ -289,9 +291,42 @@ autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermfg=234 ctermbg=2
 " TODO: put in an external file.
 
 lua << EOF
-local ncm2 = require('ncm2')
-require'lspconfig'.rust_analyzer.setup{
-    on_init = ncm2.register_lsp_source,
+local cmp = require'cmp'
+
+cmp.setup({
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  preselect = cmp.PreselectMode.None,
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require'lspconfig'
+
+lspconfig.rust_analyzer.setup{
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern('Cargo.toml'),
     settings = {
         ["rust-analyzer"] = {
             ["cargo"] = {
@@ -303,9 +338,11 @@ require'lspconfig'.rust_analyzer.setup{
         },
     }
 }
-require'lspconfig'.clangd.setup{on_init = ncm2.register_lsp_source}
-require'lspconfig'.pylsp.setup{
-    on_init = ncm2.register_lsp_source,
+lspconfig.clangd.setup{
+    capabilities = capabilities,
+}
+lspconfig.pylsp.setup{
+    capabilities = capabilities,
     settings = {
         ['pylsp'] = {
             ['plugins'] = {
@@ -329,6 +366,9 @@ require("inc_rename").setup({
 vim.keymap.set("n", "<leader>j", ":IncRename ")
 
 require "lsp_signature".setup()
+
+require("fidget").setup {
+}
 
 require 'trouble'.setup {
     icons = false,
