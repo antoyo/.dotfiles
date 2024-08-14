@@ -27,6 +27,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
+Plug 'mrcjkb/rustaceanvim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
@@ -324,20 +325,21 @@ cmp.setup.cmdline({ '/', '?' }, {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require'lspconfig'
 
-lspconfig.rust_analyzer.setup{
-    capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern('Cargo.toml'),
-    settings = {
-        ["rust-analyzer"] = {
-            ["cargo"] = {
-                ["features"] = "all",
-            },
-            rustc = {
-                source = "discover",
+vim.g.rustaceanvim = {
+    server = {
+        default_settings = {
+            ["rust-analyzer"] = {
+                ["cargo"] = {
+                    ["features"] = "all",
+                },
+                rustc = {
+                    source = "discover",
+                },
             },
         },
-    }
+    },
 }
+
 lspconfig.clangd.setup{
     capabilities = capabilities,
 }
