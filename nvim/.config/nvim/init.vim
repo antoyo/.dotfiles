@@ -231,8 +231,7 @@ nnoremap <Leader>* :Rgw <C-R><C-W><CR>
 nnoremap <Leader>q :update<CR>:q<CR>
 nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>s /\<\><Left><Left>
-" FIXME: Trouble doesn't work anymore.
-nnoremap <Leader>t :Trouble<CR>
+nnoremap <Leader>t :Trouble diagnostics toggle filter.buf=0<CR>
 nnoremap <Leader>u :GundoToggle<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>y "+y
@@ -373,7 +372,7 @@ require("fidget").setup {
 }
 
 require 'trouble'.setup {
-    icons = false,
+    icons = {},
     mode = "document_diagnostics",
     action_keys = {
         next = "t",
