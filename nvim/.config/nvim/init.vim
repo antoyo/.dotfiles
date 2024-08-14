@@ -373,14 +373,23 @@ require("fidget").setup {
 
 require 'trouble'.setup {
     icons = {},
-    mode = "document_diagnostics",
-    action_keys = {
-        next = "t",
-        previous = "s",
-        switch_severity = "v",
+    keys = {
+        t = "next",
+        s = "prev",
+        -- Toggles the severity.
+        v = {
+            action = function(view)
+                local f = view:get_filter("severity")
+                local severity = ((f and f.filter.severity or 0) + 1) % 5
+                view:filter({ severity = severity }, {
+                    id = "severity",
+                    template = "{hl:Title}Filter:{hl} {severity}",
+                    del = severity == 0,
+                })
+            end,
+            desc = "Toggle Severity Filter",
+        },
     },
-    group = false,
-    padding = false,
 }
 
 local signs = {
