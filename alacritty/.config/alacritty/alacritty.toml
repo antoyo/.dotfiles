@@ -1,0 +1,142 @@
+[colors.bright]
+black = "#7f7f7f"
+blue = "#5c5cff"
+cyan = "#00ffff"
+green = "#00ff00"
+magenta = "#ff00ff"
+red = "#ff0000"
+white = "#ffffff"
+yellow = "#ffff00"
+
+[colors.normal]
+black = "#000000"
+blue = "#0000ee"
+cyan = "#00cdcd"
+green = "#00cd00"
+magenta = "#cd00cd"
+red = "#cd0000"
+white = "#e5e5e5"
+yellow = "#cdcd00"
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[font]
+size = 14.0
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[[hints.enabled]]
+action = "Copy"
+regex = "[a-f0-9]{40}"
+
+[hints.enabled.binding]
+key = "G"
+mods = "Control|Shift"
+
+[[hints.enabled]]
+action = "Copy"
+regex = "`(.+)`"
+
+[hints.enabled.binding]
+key = "R"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "Up"
+mode = "~Alt"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "Down"
+mode = "~Alt"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Escape"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Escape"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "S"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "T"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "C"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "R"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "First"
+key = "Key0"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Last"
+key = 41
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Last"
+key = "Semicolon"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "FirstOccupied"
+key = "Key6"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SemanticRight"
+key = "W"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "WordRight"
+key = "W"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Bracket"
+key = "Key5"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "Slash"
+mode = "Vi|~Search"
+mods = "Shift"
