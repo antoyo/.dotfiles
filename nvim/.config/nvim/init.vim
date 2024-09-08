@@ -141,7 +141,7 @@ augroup filegroup
     autocmd VimLeave * CurrentSessionSave
     autocmd FileType asciidoc setlocal shiftwidth=4 | setlocal textwidth=0
     autocmd BufRead *.tig set filetype=javascript
-    autocmd BufRead *.nx set filetype=rust
+    autocmd BufRead *.nx set filetype=nox
     autocmd BufRead *.patch set nospell
 augroup END
 
@@ -307,7 +307,13 @@ cmp.setup({
   }),
   preselect = cmp.PreselectMode.None,
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
+    {
+        name = 'nvim_lsp',
+        -- Remove snippets from the auto-completion.
+        entry_filter = function(entry, ctx)
+            return cmp.lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+        end,
+    },
   }, {
     { name = 'buffer' },
   })

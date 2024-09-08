@@ -234,7 +234,7 @@ bindsym $mod+c exec nheko
 bindsym $mod+Shift+m exec thunderbird
 bindsym $mod+m exec mounter
 bindsym $mod+p exec pcmanfm
-bindsym $mod+u exec titanium
+bindsym $mod+u exec firefox
 bindsym $mod+v exec alacritty -e fish -c 'exec nvim'
 bindsym $mod+z exec zathura
 bindsym $mod+f exec dbus-send --session --print-reply --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.ShowNotifications
