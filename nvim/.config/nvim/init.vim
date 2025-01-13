@@ -39,6 +39,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/gundo.vim'
 Plug 'smjonas/inc-rename.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
@@ -47,6 +48,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 
@@ -206,6 +208,9 @@ command! -bang -nargs=* Grep
 command! -bang -nargs=* GrepW
   \ :grep '\b<args>\b' | :copen
 
+command! -bang -nargs=* Gh
+  \ :.GBrowse
+
 " TODO: add shorcuts to switch or delete buffers.
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Open new lines without going to insert mode.
@@ -303,7 +308,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    --['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   preselect = cmp.PreselectMode.None,
   sources = cmp.config.sources({
@@ -325,6 +330,17 @@ cmp.setup.cmdline({ '/', '?' }, {
   sources = {
     { name = 'buffer' }
   }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  }),
+  matching = { disallow_symbol_nonprefix_matching = false }
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()

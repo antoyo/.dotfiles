@@ -10,6 +10,11 @@ command = "(printf '🔔 '; (dbus-send --session --print-reply=literal --dest=or
 shell = "bash"
 
 [[block]]
+block = "custom"
+command = "reboot-required"
+shell = "bash"
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"

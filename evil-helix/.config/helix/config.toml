@@ -1,12 +1,9 @@
 # To implement:
 # *** Continue comment when pressing enter in insert mode (https://github.com/helix-editor/helix/issues/1730).
 # *** Sessions (https://github.com/helix-editor/helix/issues/401).
+# *** Save files for crash (https://github.com/helix-editor/helix/issues/290).
 # ** Partial loading of config (https://github.com/helix-editor/helix/issues/1732).
-# ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
 # ** Alert if file changed on disk plus reload (https://github.com/helix-editor/helix/issues/1125).
-# ** Save files for crash (https://github.com/helix-editor/helix/issues/290).
-# ** File completions (https://github.com/helix-editor/helix/issues/1015 https://github.com/helix-editor/helix/issues/2874).
-# ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
 # * Highlight search results (https://github.com/helix-editor/helix/issues/1733).
 # * Highlight invisible characters (https://github.com/helix-editor/helix/issues/1068).
 # * Marks (https://github.com/helix-editor/helix/issues/703).
@@ -38,6 +35,9 @@
 # Tabline (https://github.com/helix-editor/helix/issues/475).
 # Customizable statusline (https://github.com/helix-editor/helix/issues/708).
 # ** Line wrapping (https://github.com/helix-editor/helix/issues/136).
+# ** File completions (https://github.com/helix-editor/helix/issues/1015 https://github.com/helix-editor/helix/issues/2874).
+# ** Ctrl-d to continue scrolling at the end (https://github.com/helix-editor/helix/issues/1731).
+# ** Fuzzy search in results of a search command, not only in the file names (https://github.com/helix-editor/helix/issues/196).
 
 # TODO: enable lsp.display-inline-hints when there are good colors in my theme.
 
