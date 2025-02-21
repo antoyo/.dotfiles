@@ -91,9 +91,8 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
 end
 
 # Exports.
-set -x BROWSER titanium
 set -x EDITOR nvim
-set -x TITANIUM_EXTENSION_INSTALL_PATH /usr/local/lib/titanium/web-extensions
+set -g fish_greeting
 
 # Key bindings.
 bind \b backward-kill-bigword

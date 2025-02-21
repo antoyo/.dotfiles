@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 s1=$(pacman -Q linux | sed 's/linux //')
-s2=$(uname -r | sed 's/-artix/.artix/')
+s2=$(uname -r | sed 's/-arch/.arch/')
 
 if [ "$s1" != "$s2" ]; then
     echo "<span color='#FF0000'>↻ Reboot required</span>"

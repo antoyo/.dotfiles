@@ -191,10 +191,10 @@ set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym Shift+s exec --no-startup-id $Locker && loginctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && loginctl hibernate, mode "default"
-    bindsym r exec --no-startup-id loginctl reboot, mode "default"
-    bindsym s exec --no-startup-id loginctl poweroff -i, mode "default"
+    bindsym Shift+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -260,7 +260,8 @@ exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 -
 exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
 exec thunderbird
-exec pidgin
+exec discord
+#exec pidgin
 exec nheko
 exec i3-aww
 exec quotes
