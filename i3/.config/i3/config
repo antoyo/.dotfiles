@@ -244,9 +244,6 @@ bindsym $mod+Prior exec pulsemixer --change-volume +5
 bindsym $mod+Next exec pulsemixer --change-volume -5
 bindsym $mod+End exec pulsemixer --toggle-mute
 
-# Disable screen power saving.
-exec xset s off; xset -dpms
-
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
 #exec unclutter -root
@@ -265,3 +262,4 @@ exec discord
 exec nheko
 exec i3-aww
 exec quotes
+exec joystickwake
