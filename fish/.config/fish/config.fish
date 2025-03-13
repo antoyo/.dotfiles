@@ -1,4 +1,5 @@
 zoxide init fish | source
+#pazi init fish | source
 
 if set -q SSH_CLIENT; or set -q SSH_TTY
     source /usr/share/fish/tools/web_config/sample_prompts/default.fish
@@ -95,4 +96,4 @@ set -x EDITOR nvim
 set -g fish_greeting
 
 # Key bindings.
-bind \b backward-kill-bigword
+bind ctrl-backspace backward-kill-bigword

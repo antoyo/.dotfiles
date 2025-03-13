@@ -215,7 +215,10 @@ for_window [title="rappel"] floating disable
 # Disable auto-focus for Discord.
 #no_focus [class="discord"]
 # FIXME: the following works for Discord, but also prevent other apps from focusing like Evolution.
-#focus_on_window_activation none
+focus_on_window_activation none
+
+# Prevent Thunderbird reminder window to steal focus.
+no_focus [class="Thunderbird"]
 
 # Assign windows to specific workspace.
 assign [title="Tip of the day"] 1
