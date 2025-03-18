@@ -1,8 +1,0 @@
-set webkit-enable-developer-extras = true
-set webkit-javascript-can-open-windows-automatically = true
-set webkit-enable-java = false
-set webkit-enable-webgl = true
-set webkit-enable-media-stream = true
-# set webkit-enable-mediasource = true
-set webkit-enable-webaudio = true
-set webkit-media-playback-requires-user-gesture = true
