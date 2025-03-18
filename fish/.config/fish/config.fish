@@ -61,7 +61,7 @@ abbr ct "cargo test"
 abbr rustperf "perf record -F99 --call-graph dwarf"
 
 # Aliases.
-alias astow "sudo stow --target=/"
+alias astow "sudo stow --no-folding --target=/"
 alias ca "cargo add --upgrade=minor"
 alias cmake_uninstall "sudo xargs rm < install_manifest.txt"
 alias cp "cp -i"
