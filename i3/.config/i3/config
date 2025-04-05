@@ -261,6 +261,7 @@ exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
 exec thunderbird
 exec discord
+exec quassel
 #exec pidgin
 exec nheko
 exec i3-aww

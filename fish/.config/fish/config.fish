@@ -1,11 +1,11 @@
-zoxide init fish | source
-#pazi init fish | source
+#zoxide init fish | source
+pazi init fish | source
 
-if set -q SSH_CLIENT; or set -q SSH_TTY
-    source /usr/share/fish/tools/web_config/sample_prompts/default.fish
-else
-    source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
-end
+#if set -q SSH_CLIENT; or set -q SSH_TTY
+    #source /usr/share/fish/tools/web_config/sample_prompts/default.fish
+#else
+    #source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
+#end
 
 function bsixdec
     echo "$argv[1]" | base64 -d
@@ -18,13 +18,15 @@ function fish_remove_path
     set -e fish_user_paths[1]
 end
 
-function z
-    if count $argv > /dev/null
-        __zoxide_z $argv; and ls
-    else
-        __zoxide_z; and ls
-    end
-end
+#function z
+    #if count $argv > /dev/null
+        ##__zoxide_z $argv; and ls
+        #pazi_cd $argv; and ls
+    #else
+        ##__zoxide_z; and ls
+        #pazi_cd; and ls
+    #end
+#end
 
 function cd
     if count $argv > /dev/null
@@ -86,6 +88,7 @@ alias stow "stow --no-folding"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
 alias you "youtube-dl --no-playlist"
 alias mp3you "yt-dlp --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias zf 'z --pipe="fzf"'
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
@@ -97,3 +100,15 @@ set -g fish_greeting
 
 # Key bindings.
 bind ctrl-backspace backward-kill-bigword
+
+# Tide configuration.
+set --global tide_left_prompt_items $tide_left_prompt_items private_mode
+# TODO: use ✖ for conflicted icon.
+set --global tide_git_color_conflicted CCB700
+set --global tide_git_color_dirty FFFF00
+set --global tide_git_color_operation 0000FF
+set --global tide_git_color_staged 007700
+set --global tide_git_color_stash 004700
+set --global tide_git_color_untracked CC0000
+set --global tide_git_color_upstream 004700
+set --global tide_context_color_root FF0000

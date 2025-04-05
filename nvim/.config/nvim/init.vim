@@ -98,6 +98,8 @@ set suffixes +=,, " Ignore files without extension (probably binary files) in fi
 set wildmenu " Show completions in commands.
 set wildmode =longest,list,full
 "set wildignore+=Cargo.lock " Ignore these files in file completion.
+" TODO: uncomment winborder when nvim-cmp is updated to support this.
+"set winborder =rounded
 
 " Search configuration.
 set gdefault " Enable global substitute (all matches in a line are substituted).
@@ -152,6 +154,9 @@ autocmd BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundo
 
 " Check if a file was modified externally when entering the buffer/window.
 autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+
+" Make neovim show a prompt if a swapfile already exists.
+autocmd! nvim.swapfile
 
 " Disable F1, ex mode and Ctrl-Z shortcuts.
 map <F1> <nop>
@@ -320,6 +325,8 @@ cmp.setup({
         end,
     },
   }, {
+    { name = 'path' },
+  }, {
     { name = 'buffer' },
   })
 })
@@ -414,19 +421,34 @@ require 'trouble'.setup {
     },
 }
 
-local signs = {
-    Error = "",
-    Warn = "",
-    Hint = "",
-    Info = "",
-}
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]= "",
+            [vim.diagnostic.severity.HINT] = "",
+            [vim.diagnostic.severity.INFO] = "",
+        },
+    },
+    virtual_lines = true,
 
--- To have pretty diagnostic icons.
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    -- TODO: could this be in vimscript?
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+    virtual_lines = {
+        -- Only show virtual line diagnostics for the current cursor line
+        current_line = true,
+    },
+})
+
+-- Do not show virtual lines (inline diagnostics) for C++ projects.
+vim.api.nvim_create_autocmd('BufRead', {
+    group = vim.api.nvim_create_augroup('filetype_cpp', { clear = true }),
+    desc = 'Set LSP diagnostics for C++',
+    pattern = { '*.cc' },
+    callback = function()
+        vim.diagnostic.config({
+            virtual_lines = false,
+        })
+    end,
+})
 
 -- Disable inline diagnostics.
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
