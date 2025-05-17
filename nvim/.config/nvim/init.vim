@@ -430,12 +430,6 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.INFO] = "",
         },
     },
-    virtual_lines = true,
-
-    virtual_lines = {
-        -- Only show virtual line diagnostics for the current cursor line
-        current_line = true,
-    },
 })
 
 -- Do not show virtual lines (inline diagnostics) for C++ projects.
