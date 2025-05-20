@@ -74,6 +74,7 @@ alias dcmake "cmake -DCMAKE_BUILD_TYPE=Debug .."
 alias df "df -h"
 alias fishconfig "nvim ~/.config/fish/config.fish"
 alias flame "titanium file://(perf script | stackcollapse-perf | flamegraph|psub)"
+alias helixconfig "hx ~/.config/helix/config.toml"
 alias i3config "nvim ~/.config/i3/config"
 alias ls "ls --color=auto -N"
 alias mkdir "mkdir -p"
@@ -83,6 +84,7 @@ alias mv "mv -i"
 alias objdump "objdump -M intel-syntax"
 alias nvimconfig "cd ~/.config/nvim; nvim init.vim"
 alias perf-annotate "perf annotate -M intel"
+alias playwright-trace "uv run -- playwright show-trace test-results/*/trace.zip"
 alias rm "rm -i"
 alias stow "stow --no-folding"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
@@ -96,6 +98,8 @@ end
 
 # Exports.
 set -x EDITOR nvim
+# Set man to use bat as its pager.
+set -x MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 set -g fish_greeting
 
 # Key bindings.
@@ -111,4 +115,5 @@ set --global tide_git_color_staged 007700
 set --global tide_git_color_stash 004700
 set --global tide_git_color_untracked CC0000
 set --global tide_git_color_upstream 004700
+set --global tide_git_truncation_length 32
 set --global tide_context_color_root FF0000

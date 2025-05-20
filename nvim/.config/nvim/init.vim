@@ -45,7 +45,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
@@ -368,6 +367,8 @@ vim.g.rustaceanvim = {
     },
 }
 
+environment = vim.fn.getcwd() .. '/.venv'
+
 lspconfig.clangd.setup{
     capabilities = capabilities,
 }
@@ -378,6 +379,11 @@ lspconfig.pylsp.setup{
             ['plugins'] = {
                 ['flake8'] = {
                     ['enabled'] = true
+                },
+                ['jedi'] = {
+                    -- FIXME: this doesn't work with :OpenSession because the cwd is set after this setup.
+                    -- Perhaps the DirChanged autocmd could be used.
+                    environment = environment,
                 },
                 ['pycodestyle'] = {
                     ['enabled'] = false
