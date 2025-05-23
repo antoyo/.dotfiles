@@ -18,3 +18,4 @@ define qemu_debug
 end
 
 source ~/.config/gdb/dashboard
+dashboard -style discard_scrollback False
