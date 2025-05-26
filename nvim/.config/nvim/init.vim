@@ -21,7 +21,6 @@ Plug 'dahu/vim-asciidoc'
 " To show errors from the build done by the LSP.
 Plug 'folke/trouble.nvim'
 " To have FZF for LSP features.
-Plug 'gfanto/fzf-lsp.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf'
@@ -31,6 +30,7 @@ Plug 'mrcjkb/rustaceanvim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ojroques/nvim-lspfuzzy'
 " To see the function signature when typing a function call.
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'roxma/nvim-yarp'
@@ -221,7 +221,7 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>A O<Esc>
 nnoremap <expr> <Leader>a &modifiable?"o<Esc>":"<CR>"
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>d :Definitions<CR>
+nnoremap <Leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>e :set spelllang=en<CR>:set spell<CR>
 nnoremap <Leader>f <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <Leader>g :Rg 
@@ -231,14 +231,14 @@ nnoremap <Leader>jn <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <Leader>jp <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <Leader>l "*p
 nnoremap <Leader>L "*P
-nnoremap <Leader>m :Implementations<CR>
+nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <Leader>n :only<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 nnoremap <Leader>* :Rgw <C-R><C-W><CR>
 nnoremap <Leader>q :update<CR>:q<CR>
-nnoremap <Leader>r :References<CR>
+nnoremap <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <Leader>s /\<\><Left><Left>
 nnoremap <Leader>t :Trouble diagnostics toggle filter.buf=0<CR>
 nnoremap <Leader>u :GundoToggle<CR>
@@ -352,6 +352,10 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require'lspconfig'
 
+local on_attach = function(client, _)
+  client.request = require('lspfuzzy').wrap_request(client.request)
+end
+
 vim.g.rustaceanvim = {
     server = {
         default_settings = {
@@ -364,6 +368,7 @@ vim.g.rustaceanvim = {
                 },
             },
         },
+        on_attach = on_attach,
     },
 }
 
@@ -371,6 +376,7 @@ environment = vim.fn.getcwd() .. '/.venv'
 
 lspconfig.clangd.setup{
     capabilities = capabilities,
+    on_attach = on_attach,
 }
 lspconfig.pylsp.setup{
     capabilities = capabilities,
@@ -394,6 +400,7 @@ lspconfig.pylsp.setup{
             },
         },
     },
+    on_attach = on_attach,
 }
 
 require("inc_rename").setup({
@@ -457,6 +464,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-require'fzf_lsp'.setup()
+require('lspfuzzy').setup {}
 
 EOF
