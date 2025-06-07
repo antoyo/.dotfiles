@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
     # Navigation
     { on = [ "s" ], run = "arrow -1", desc = "Move cursor up" },

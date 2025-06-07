@@ -18,6 +18,8 @@ Plug 'cespare/vim-toml'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'dahu/vim-asciidoc'
+" To show the error under the cursor at the top-right.
+Plug 'dgagn/diagflow.nvim'
 " To show errors from the build done by the LSP.
 Plug 'folke/trouble.nvim'
 " To have FZF for LSP features.
@@ -464,6 +466,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
+require('diagflow').setup()
 require('lspfuzzy').setup {}
 
 EOF
