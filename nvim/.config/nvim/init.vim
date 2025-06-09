@@ -365,6 +365,11 @@ vim.g.rustaceanvim = {
                 ["cargo"] = {
                     ["features"] = "all",
                 },
+                imports = {
+                    granularity = {
+                        group = "module",
+                    },
+                },
                 rustc = {
                     source = "discover",
                 },
