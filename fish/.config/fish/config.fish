@@ -53,23 +53,23 @@ function tradfr
 end
 
 # Abbreviations.
+abbr ca "cargo add --upgrade=minor"
 abbr cb "cargo build"
 abbr cbr "cargo build --release"
 abbr cnl "cargo new --lib"
 abbr cn "cargo new"
 abbr cr "cargo run"
 abbr cre "cargo run --example"
+abbr crl "cargo release --no-dev-version"
+abbr cs "cargo search"
 abbr ct "cargo test"
+abbr cu "cargo update"
 abbr rustperf "perf record -F99 --call-graph dwarf"
 
 # Aliases.
 alias astow "sudo stow --no-folding --target=/"
-alias ca "cargo add --upgrade=minor"
 alias cmake_uninstall "sudo xargs rm < install_manifest.txt"
 alias cp "cp -i"
-alias crl "cargo release --no-dev-version"
-alias cs "cargo search"
-alias cu "cargo update"
 alias dcmake "cmake -DCMAKE_BUILD_TYPE=Debug .."
 alias df "df -h"
 alias fishconfig "nvim ~/.config/fish/config.fish"
