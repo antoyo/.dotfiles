@@ -362,9 +362,9 @@ vim.g.rustaceanvim = {
     server = {
         default_settings = {
             ["rust-analyzer"] = {
-                ["cargo"] = {
-                    ["features"] = "all",
-                },
+                --["cargo"] = {
+                    --["features"] = "all",
+                --},
                 imports = {
                     granularity = {
                         group = "module",

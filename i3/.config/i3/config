@@ -222,6 +222,7 @@ no_focus [class="Thunderbird"]
 
 # Assign windows to specific workspace.
 assign [title="Tip of the day"] 1
+assign [window_role="AlarmWindow"] 2
 
 # Mouse.
 focus_follows_mouse no
