@@ -52,6 +52,10 @@ function tradfr
     trans -brief :fr "$argv"
 end
 
+function urldecode
+    echo -n "$argv[1]" | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));"
+end
+
 # Abbreviations.
 abbr ca "cargo add --upgrade=minor"
 abbr cb "cargo build"

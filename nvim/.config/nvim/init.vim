@@ -351,8 +351,7 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require'lspconfig'
+local lspconfig = require('lspconfig')
 
 local on_attach = function(client, _)
   client.request = require('lspfuzzy').wrap_request(client.request)
@@ -381,34 +380,35 @@ vim.g.rustaceanvim = {
 
 environment = vim.fn.getcwd() .. '/.venv'
 
-lspconfig.clangd.setup{
-    capabilities = capabilities,
+vim.lsp.enable("clangd")
+vim.lsp.config("clangd", {
+    on_attach = on_attach
+})
+
+vim.lsp.enable("pylsp")
+vim.lsp.config("pylsp", {
     on_attach = on_attach,
-}
-lspconfig.pylsp.setup{
-    capabilities = capabilities,
-    settings = {
-        ['pylsp'] = {
-            ['plugins'] = {
-                ['flake8'] = {
-                    ['enabled'] = true
-                },
-                ['jedi'] = {
-                    -- FIXME: this doesn't work with :OpenSession because the cwd is set after this setup.
-                    -- Perhaps the DirChanged autocmd could be used.
-                    environment = environment,
-                },
-                ['pycodestyle'] = {
-                    ['enabled'] = false
-                },
-                ['pyflakes'] = {
-                    ['enabled'] = false
-                }
-            },
-        },
-    },
-    on_attach = on_attach,
-}
+    --settings = {
+    --    ['pylsp'] = {
+    --        ['plugins'] = {
+    --            ['flake8'] = {
+    --                ['enabled'] = true
+    --            },
+    --            ['jedi'] = {
+    --                -- FIXME: this doesn't work with :OpenSession because the cwd is set after this setup.
+    --                -- Perhaps the DirChanged autocmd could be used.
+    --                environment = environment,
+    --            },
+    --            ['pycodestyle'] = {
+    --                ['enabled'] = false
+    --            },
+    --            ['pyflakes'] = {
+    --                ['enabled'] = false
+    --            }
+    --        },
+    --    },
+    --},
+})
 
 require("inc_rename").setup({
     cmd_name = "Rename",
