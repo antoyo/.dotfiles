@@ -78,6 +78,7 @@ let mapleader = "\<Space>"
 " UI configuration.
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
+let g:editorconfig = v:false
 colorscheme gruvbox
 set cursorline " Highlight the active line.
 set diffopt+=vertical " Make diff split vertical by default.
