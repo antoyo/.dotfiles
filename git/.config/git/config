@@ -1,6 +1,6 @@
 [user]
-	email = bouanto@zoho.com
-	name = Antoni Boucher
+    email = bouanto@zoho.com
+    name = Antoni Boucher
 [push]
     default = simple
 [diff]
