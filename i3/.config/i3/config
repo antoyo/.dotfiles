@@ -218,7 +218,8 @@ for_window [title="rappel"] floating disable
 focus_on_window_activation none
 
 # Prevent Thunderbird reminder window to steal focus.
-no_focus [class="Thunderbird"]
+# FIXME: this also affects New Event windows, so commented for now.
+#no_focus [class="Thunderbird"]
 
 # Assign windows to specific workspace.
 assign [title="Tip of the day"] 1
@@ -269,6 +270,7 @@ exec i3-aww
 exec quotes
 exec joystickwake
 exec unclutter
+exec plain_clipboard
 
 # For laptops:
 exec i3-battery-popup

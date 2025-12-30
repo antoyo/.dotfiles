@@ -32,7 +32,7 @@ syn keyword   rustKeyword     fun nextgroup=rustFuncName skipwhite skipempty
 syn keyword   rustKeyword     impl let
 syn keyword   rustKeyword     pub nextgroup=rustPubScope skipwhite skipempty
 syn keyword   rustKeyword     return
-syn keyword   rustKeyword     requires ensures where
+syn keyword   rustKeyword     assume requires ensures where
 syn keyword   rustKeyword     use nextgroup=rustModPath skipwhite skipempty
 syn keyword   rustStorage     move mut ref static const
 syn match     rustDefault     /\<default\ze\_s\+\(impl\|fun\|typealias\|const\)\>/
