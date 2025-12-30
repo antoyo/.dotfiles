@@ -269,3 +269,6 @@ exec i3-aww
 exec quotes
 exec joystickwake
 exec unclutter
+
+# For laptops:
+exec i3-battery-popup
