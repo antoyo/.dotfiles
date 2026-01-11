@@ -204,6 +204,9 @@ bindsym Control+$mod+q mode "$mode_system"
 
 bindsym Control+$mod+l exec --no-startup-id $Locker
 
+# FIXME: doesn't work:
+#bindsym XF86Paste exec --no-startup-id xdotool key Shift+Insert
+
 # Disable floating for softwares.
 for_window [title="Inspecteur Web"] floating disable
 for_window [title="Peshk"] floating disable
@@ -271,6 +274,7 @@ exec quotes
 exec joystickwake
 exec unclutter
 exec plain_clipboard
+exec check_sw
 
 # For laptops:
 exec i3-battery-popup

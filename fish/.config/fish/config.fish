@@ -93,8 +93,9 @@ alias playwright-trace "uv run -- playwright show-trace test-results/*/trace.zip
 alias rm "rm -i"
 alias stow "stow --no-folding"
 alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
-alias you "youtube-dl --no-playlist"
-alias mp3you "yt-dlp --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias you "yt-dlp --restrict-filenames"
+alias mp3you "you --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias you720 "you -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
 alias zf 'z --pipe="fzf"'
 
 function __fish_command_not_found_handler --on-event fish_command_not_found

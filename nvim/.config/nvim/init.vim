@@ -152,7 +152,7 @@ augroup filegroup
 augroup END
 
 " Disable backup for gopass files.
-autocmd BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile shada=""
 
 " Check if a file was modified externally when entering the buffer/window.
 autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
@@ -318,6 +318,24 @@ cmp.setup({
     --['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   preselect = cmp.PreselectMode.None,
+  sorting = {
+      -- Move exact completion matches at the end.
+      comparators = {
+          function(entry1,entry2)
+              if(entry1.exact ~= entry2.exact) then
+                  return not entry1.exact
+              end
+              return nil
+          end,
+          cmp.config.compare.offset,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+      },
+  },
   sources = cmp.config.sources({
     {
         name = 'nvim_lsp',
