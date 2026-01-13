@@ -251,6 +251,8 @@ bindsym $mod+Prior exec pulsemixer --change-volume +5
 bindsym $mod+Next exec pulsemixer --change-volume -5
 bindsym $mod+End exec pulsemixer --toggle-mute
 
+include ~/.config/i3/xrandr
+
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
 # TODO: Seems like the files that we want to merge with xrdb don't exist.
@@ -258,7 +260,6 @@ exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
-exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
 exec --no-startup-id nm-applet
 exec thunderbird
 exec discord
