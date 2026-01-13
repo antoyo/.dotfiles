@@ -6,11 +6,6 @@ icons = "awesome4"
 
 [[block]]
 block = "custom"
-command = "(printf '🔔 '; (dbus-send --session --print-reply=literal --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.ShowNotificationCount 2>/dev/null || ($HOME/.local/bin/i3-notifier && echo '? ? ?'))|tr -s ' '|cut -d' ' -f 3 | head -n 1) | grep -vw 0"
-shell = "bash"
-
-[[block]]
-block = "custom"
 command = "reboot-required"
 shell = "bash"
 

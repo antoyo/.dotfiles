@@ -245,7 +245,6 @@ bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec firefox
 bindsym $mod+v exec alacritty -e fish -c 'exec nvim'
 bindsym $mod+z exec zathura
-bindsym $mod+f exec dbus-send --session --print-reply --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.ShowNotifications
 
 # Volume management.
 bindsym $mod+Prior exec pulsemixer --change-volume +5
@@ -254,20 +253,16 @@ bindsym $mod+End exec pulsemixer --toggle-mute
 
 # Autostart applications.
 exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
-#exec unclutter -root
 # TODO: Seems like the files that we want to merge with xrdb don't exist.
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
 # Screen configuration
 exec feh --bg-scale ~/.config/i3/images/wallpaper.png
 exec setxkbmap my_bepo bepo # For rofi.
-#exec anamnesis --start
 exec xrandr --output DVI-D-0 --auto --output HDMI-A-0 --auto --left-of DVI-D-0 --primary
-exec --no-startup-id i3-notifier
 exec --no-startup-id nm-applet
 exec thunderbird
 exec discord
 exec kvirc
-#exec pidgin
 exec nheko
 exec i3-aww
 exec quotes
