@@ -409,30 +409,8 @@ vim.lsp.config("clangd", {
     on_attach = on_attach
 })
 
-vim.lsp.enable("pylsp")
-vim.lsp.config("pylsp", {
-    on_attach = on_attach,
-    --settings = {
-    --    ['pylsp'] = {
-    --        ['plugins'] = {
-    --            ['flake8'] = {
-    --                ['enabled'] = true
-    --            },
-    --            ['jedi'] = {
-    --                -- FIXME: this doesn't work with :OpenSession because the cwd is set after this setup.
-    --                -- Perhaps the DirChanged autocmd could be used.
-    --                environment = environment,
-    --            },
-    --            ['pycodestyle'] = {
-    --                ['enabled'] = false
-    --            },
-    --            ['pyflakes'] = {
-    --                ['enabled'] = false
-    --            }
-    --        },
-    --    },
-    --},
-})
+vim.lsp.enable('ty')
+vim.lsp.enable('ruff')
 
 require("inc_rename").setup({
     cmd_name = "Rename",

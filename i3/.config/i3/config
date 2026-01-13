@@ -275,6 +275,8 @@ exec joystickwake
 exec unclutter
 exec plain_clipboard
 exec check_sw
+# Program to move the mouse to the bottom left of the screen when pressing both joysticks. Useful when streaming games.
+exec mouve
 
 # For laptops:
 exec i3-battery-popup
