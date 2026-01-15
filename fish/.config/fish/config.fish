@@ -1,11 +1,4 @@
-#zoxide init fish | source
 pazi init fish | source
-
-#if set -q SSH_CLIENT; or set -q SSH_TTY
-    #source /usr/share/fish/tools/web_config/sample_prompts/default.fish
-#else
-    #source /usr/share/fish/tools/web_config/sample_prompts/informative_vcs.fish
-#end
 
 function bsixdec
     echo "$argv[1]" | base64 -d
@@ -17,16 +10,6 @@ function fish_remove_path
     # Remove the first element.
     set -e fish_user_paths[1]
 end
-
-#function z
-    #if count $argv > /dev/null
-        ##__zoxide_z $argv; and ls
-        #pazi_cd $argv; and ls
-    #else
-        ##__zoxide_z; and ls
-        #pazi_cd; and ls
-    #end
-#end
 
 function cd
     if count $argv > /dev/null
@@ -57,14 +40,13 @@ function urldecode
 end
 
 # Abbreviations.
-abbr ca "cargo add --upgrade=minor"
+abbr ca "cargo add"
 abbr cb "cargo build"
 abbr cbr "cargo build --release"
 abbr cnl "cargo new --lib"
 abbr cn "cargo new"
 abbr cr "cargo run"
 abbr cre "cargo run --example"
-abbr crl "cargo release --no-dev-version"
 abbr cs "cargo search"
 abbr ct "cargo test"
 abbr cu "cargo update"
@@ -77,8 +59,7 @@ alias cp "cp -i"
 alias dcmake "cmake -DCMAKE_BUILD_TYPE=Debug .."
 alias df "df -h"
 alias fishconfig "nvim ~/.config/fish/config.fish"
-alias flame "titanium file://(perf script | inferno-collapse-perf | inferno-flamegraph|psub)"
-alias helixconfig "hx ~/.config/helix/config.toml"
+alias flame "firefox file://(perf script | inferno-collapse-perf | inferno-flamegraph|psub)"
 alias i3config "nvim ~/.config/i3/config"
 alias kepubify "kepubify -i"
 alias ls "ls --color=auto -N"
@@ -92,7 +73,6 @@ alias perf-annotate "perf annotate -M intel"
 alias playwright-trace "uv run -- playwright show-trace test-results/*/trace.zip"
 alias rm "rm -i"
 alias stow "stow --no-folding"
-alias titaniumconfig "cd ~/.config/titanium; nvim config keys"
 alias you "yt-dlp --restrict-filenames"
 alias mp3you "you --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 alias you720 "you -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
