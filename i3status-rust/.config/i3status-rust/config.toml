@@ -10,6 +10,10 @@ command = "reboot-required"
 shell = "bash"
 
 [[block]]
+block = "net"
+format = " $icon $signal_strength "
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
