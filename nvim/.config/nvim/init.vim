@@ -319,14 +319,16 @@ cmp.setup({
   }),
   preselect = cmp.PreselectMode.None,
   sorting = {
-      -- Move exact completion matches at the end.
       comparators = {
+          -- Move exact completion matches at the end.
           function(entry1,entry2)
               if(entry1.exact ~= entry2.exact) then
                   return not entry1.exact
               end
               return nil
           end,
+          -- Move non-imported symbols at the end.
+          cmp.config.compare.locality,
           cmp.config.compare.offset,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
