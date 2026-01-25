@@ -11,6 +11,16 @@ function fish_remove_path
     set -e fish_user_paths[1]
 end
 
+function generate_db_filename
+    set datetime (date "+%Y-%m-%d_%H-%M-%S")
+    set filename "games"_"$datetime".sqlite
+    echo $filename
+end
+
+function open_db
+    sqlite3 -cmd "PRAGMA trusted_schema=1;" -cmd ".load /home/$USER/Ordinateur/Programmation/Projets/sqlite-zstd/target/release/libsqlite_zstd.so" "$argv[1]"
+end
+
 function cd
     if count $argv > /dev/null
         builtin cd "$argv"; and ls
