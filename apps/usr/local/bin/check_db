@@ -35,11 +35,11 @@ reset="\033[0m"
 
 if [[ "$file_hash" == "$last_hash" ]]; then
     green="\033[32m"
-    echo " ✅ File '$argument' matches last file '$last_file'"
+    echo -e " ${green} ✅ ${reset} File '$argument' matches last file '$last_file'"
     exit 0
 else
     red="\033[31;1m"
 
-    echo -e "${red} ❌${reset} File '$argument' differs from last file '$last_file'"
+    echo -e " ${red} ❌${reset} File '$argument' differs from last file '$last_file'"
     exit 2
 fi
