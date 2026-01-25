@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Usage: check_db database.sqlite
+
+backup_folder="$HOME/Documents/MEGA"
+
+if [[ $# -lt 1 ]]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
+
+argument="$1"
+
+if [[ ! -f "$argument" ]]; then
+    echo "File '$argument' not found"
+    exit 1
+fi
+
+if [[ ! -d "$backup_folder" ]]; then
+    echo "Folder '$backup_folder' not found"
+    exit 1
+fi
+
+last_file=$(ls -r "$backup_folder" | head -n1)
+
+if [[ -z "$last_file" ]]; then
+    echo "No files found in folder '$backup_folder'"
+    exit 1
+fi
+
+file_hash=$(sha256sum "$argument" | awk '{print $1}')
+last_hash=$(sha256sum "$backup_folder/$last_file" | awk '{print $1}')
+
+reset="\033[0m"
+
+if [[ "$file_hash" == "$last_hash" ]]; then
+    green="\033[32m"
+    echo " ✅ File '$argument' matches last file '$last_file'"
+    exit 0
+else
+    red="\033[31;1m"
+
+    echo -e "${red} ❌${reset} File '$argument' differs from last file '$last_file'"
+    exit 2
+fi
