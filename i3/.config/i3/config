@@ -254,6 +254,7 @@ bindsym $mod+End exec pulsemixer --toggle-mute
 include ~/.config/i3/xrandr
 
 # Autostart applications.
+exec --no-startup-id dunst
 exec xsetroot -cursor_name left_ptr # TODO: is it still needed?
 # TODO: Seems like the files that we want to merge with xrdb don't exist.
 exec xrdb -merge ~/.config/X11/xresources; xrdb -merge ~/.config/rofi/config
@@ -267,12 +268,16 @@ exec kvirc
 exec nheko
 exec i3-aww
 exec quotes
+# TODO: check if joystickwake is still needed with xssproxy.
 exec joystickwake
+# To prevent the screen to go to sleep when applications play videos.
+exec --no-startup-id xssproxy
 exec unclutter
 exec plain_clipboard
 exec check_sw
 # Program to move the mouse to the bottom left of the screen when pressing both joysticks. Useful when streaming games.
 exec mouve
+exec megasync
 
 # For laptops:
 exec i3-battery-popup
