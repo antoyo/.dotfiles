@@ -22,6 +22,8 @@ Plug 'dahu/vim-asciidoc'
 Plug 'dgagn/diagflow.nvim'
 " To show errors from the build done by the LSP.
 Plug 'folke/trouble.nvim'
+" To show live help for the keybindings.
+Plug 'folke/which-key.nvim'
 " To have FZF for LSP features.
 Plug 'j-hui/fidget.nvim'
 Plug 'jamessan/vim-gnupg'
