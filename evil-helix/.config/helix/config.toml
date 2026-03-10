@@ -51,11 +51,11 @@ cursorline = true
 line-number = "relative"
 mouse = false
 
-[editor.persistence]
-all.enabled = true
-all.max-entries = 1000
-all.scope = "per-workspace"
-autostart-splits = true
+#[editor.persistence]
+#all.enabled = true
+#all.max-entries = 1000
+#all.scope = "per-workspace"
+#autostart-splits = true
 
 [editor.indent-guides]
 render = true
@@ -110,11 +110,11 @@ t = "move_visual_line_down"
 s = "move_visual_line_up"
 
 # Word movement
-"é" = "evil_next_word_start"
-"É" = "evil_next_long_word_start"
+#"é" = "evil_next_word_start"
+#"É" = "evil_next_long_word_start"
 
 # Change
-l = "evil_change"
+#l = "evil_change"
 
 # Replace
 h = "replace"

@@ -10,6 +10,13 @@ command = "reboot-required"
 shell = "bash"
 
 [[block]]
+block = "notify"
+format = "{ <span color='#e2a610'>$icon</span> $history_count.eng(range:1..,show:true) |}"
+[[block.click]]
+button = "left"
+action = "show_all"
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
