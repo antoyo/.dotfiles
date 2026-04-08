@@ -151,6 +151,8 @@ augroup filegroup
     autocmd BufRead *.tig set filetype=javascript
     autocmd BufRead *.nx set filetype=nox
     autocmd BufRead *.patch set nospell
+    " Make _ be included in (small) word motion for asciidoc.
+    autocmd FileType asciidoc setlocal iskeyword+=_
 augroup END
 
 " Disable backup for gopass files.

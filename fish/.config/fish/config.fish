@@ -13,7 +13,7 @@ end
 
 function generate_db_filename
     set datetime (date "+%Y-%m-%d_%H-%M-%S")
-    set filename "games"_"$datetime".sqlite
+    set filename "$datetime""-games".sqlite
     echo $filename
 end
 
@@ -83,7 +83,7 @@ alias perf-annotate "perf annotate -M intel"
 alias playwright-trace "uv run -- playwright show-trace test-results/*/trace.zip"
 alias rm "rm -i"
 alias stow "stow --no-folding"
-alias you "yt-dlp --restrict-filenames"
+alias you "yt-dlp --restrict-filenames --sponsorblock-remove sponsor"
 alias mp3you "you --ignore-errors --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s'"
 alias you720 "you -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
 alias zf 'z --pipe="fzf"'
