@@ -1,9 +1,9 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
-image/svg+xml=titanium.desktop
-text/html=titanium.desktop
-x-scheme-handler/https=titanium.desktop
-x-scheme-handler/http=titanium.desktop
+image/svg+xml=firefox.desktop
+text/html=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=firefox.desktop
 image/png=feh.desktop
 image/jpeg=feh.desktop
 image/bmp=feh.desktop
