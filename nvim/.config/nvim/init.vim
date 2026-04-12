@@ -482,4 +482,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 require('diagflow').setup()
 require('lspfuzzy').setup {}
 
+vim.g.clipboard = 'osc52'
+
 EOF
