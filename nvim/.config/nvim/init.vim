@@ -475,6 +475,4 @@ vim.api.nvim_create_autocmd('BufRead', {
 require('diagflow').setup()
 require('lspfuzzy').setup {}
 
-vim.g.clipboard = 'osc52'
-
 EOF

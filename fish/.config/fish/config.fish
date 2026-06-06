@@ -12,9 +12,9 @@ function fish_remove_path
 end
 
 function generate_db_filename
+    set prefix $argv[1]
     set datetime (date "+%Y-%m-%d_%H-%M-%S")
-    set filename "$datetime""-games".sqlite
-    echo $filename
+    echo "$datetime-$prefix-games.sqlite"
 end
 
 function open_db

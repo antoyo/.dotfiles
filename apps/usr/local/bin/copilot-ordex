@@ -1,0 +1,15 @@
+#!/bin/bash
+
+host=arch-carbon
+dir=projects/ordex
+term=alacritty
+shell=fish
+
+function open_jailed_dir() {
+    $term -e $shell -c "ssh -t $host \"firejail --profile=fish fish -c 'cd $1 && fish'\"" &
+}
+
+open_jailed_dir $dir
+open_jailed_dir $dir
+open_jailed_dir $dir
+open_jailed_dir "tests/ordex-test"
