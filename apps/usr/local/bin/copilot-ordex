@@ -6,7 +6,7 @@ term=alacritty
 shell=fish
 
 function open_jailed_dir() {
-    $term -e $shell -c "ssh -t $host \"firejail --profile=fish fish -c 'cd $1 && fish'\"" &
+    $term -e $shell -c "ssh -t $host \"firejail --profile=fish $shell -c 'cd $1 && $shell'\"" &
 }
 
 open_jailed_dir $dir
