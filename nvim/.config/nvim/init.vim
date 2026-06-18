@@ -223,7 +223,7 @@ command! -bang -nargs=* Gh
   \ :.GBrowse
 
 " TODO: add shorcuts to switch or delete buffers.
-nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <silent> <Leader>l :nohlsearch<CR>
 " Open new lines without going to insert mode.
 nnoremap <Leader>A O<Esc>
 nnoremap <expr> <Leader>a &modifiable?"o<Esc>":"<CR>"
@@ -231,13 +231,11 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>e :set spelllang=en<CR>:set spell<CR>
 nnoremap <Leader>f <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <Leader>g :Rg 
+nnoremap <Leader>/ :Rg 
 nnoremap <Leader>h :hide<CR>
 nnoremap <Leader>H <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>jn <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <Leader>jp <cmd>lua vim.diagnostic.goto_prev()<CR>
-nnoremap <Leader>l "*p
-nnoremap <Leader>L "*P
 nnoremap <Leader>m <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <Leader>n :only<CR>
 nnoremap <Leader>o :Files<CR>
