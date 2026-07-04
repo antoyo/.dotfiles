@@ -243,7 +243,7 @@ bindsym $mod+Shift+m exec thunderbird
 bindsym $mod+m exec mounter
 bindsym $mod+p exec pcmanfm
 bindsym $mod+u exec firefox
-bindsym $mod+v exec alacritty -e fish -c 'exec nvim'
+bindsym $mod+v exec alacritty -e fish -c 'exec ordex'
 bindsym $mod+z exec zathura
 
 # Volume management.

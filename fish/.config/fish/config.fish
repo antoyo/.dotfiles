@@ -68,9 +68,9 @@ alias cmake_uninstall "sudo xargs rm < install_manifest.txt"
 alias cp "cp -i"
 alias dcmake "cmake -DCMAKE_BUILD_TYPE=Debug .."
 alias df "df -h"
-alias fishconfig "nvim ~/.config/fish/config.fish"
+alias fishconfig "ordex ~/.config/fish/config.fish"
 alias flame "firefox file://(perf script | inferno-collapse-perf | inferno-flamegraph|psub)"
-alias i3config "nvim ~/.config/i3/config"
+alias i3config "ordex ~/.config/i3/config"
 alias kepubify "kepubify -i"
 alias ls "ls --color=auto -N"
 alias mkdir "mkdir -p"
@@ -95,7 +95,7 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
 end
 
 # Exports.
-set -x EDITOR nvim
+set -x EDITOR ordex
 # Set man to use bat as its pager.
 set -x MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 set -g fish_greeting
