@@ -140,3 +140,9 @@ action = "SearchBackward"
 key = "Slash"
 mode = "Vi|~Search"
 mods = "Shift"
+
+# Enable Shift-Enter in so TUI programs.
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
